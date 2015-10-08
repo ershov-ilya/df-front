@@ -22,7 +22,8 @@ html {
 
 body { margin: 0; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {  display: block; }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block; }
 
 audio, canvas, progress, video {
   display: inline-block;
@@ -2224,16 +2225,13 @@ line-height: 24px;	 }
     .catalogue-content .products .products-item {
       width: 20%; } }
 
-.product {
-  position: relative;
-  width: 250px;
-  margin: 0 auto; }
+.product { position: relative; width: 250px; margin: 0 auto; }
+.product a { display: block;  width: 252px; color: black; text-decoration: none; border: 1px solid #FFFFFF; }
+.product > .button { color: #444444; background: #FFFFFF; font-size: 13px; text-transform: uppercase; height: 30px; line-height: 23px; padding: 3px 18px; margin-top: 5px; text-align: center; border: 1px solid #EAEAEA; }
+.product > .button:hover { color: #FFFFFF; background: #363F70; border: 1px solid #999999;  }
 
-.product-pic {
-  position: relative;
-  margin-bottom: 10px; }
-  .product-pic img {
-    display: block; }
+.product-pic { position: relative; margin-bottom: 10px; }
+.product-pic > img , .cart-product > .product-pic > a > img { display: block; width: 250px; height: 250px; }  
 
 .product-popup {
   -webkit-transition: opacity 0.3s ease-in-out;
@@ -2250,7 +2248,7 @@ line-height: 24px;	 }
   .product-pic:hover .product-popup {
     opacity: 1;
 }
-	
+
 .product-popup-3 {
 	padding: 35px 24px 0 !important;
 }
@@ -2277,9 +2275,7 @@ line-height: 24px;	 }
   margin-bottom: 18px;
   text-align: center; }
 
-.product-price {
-  display: table;
-  width: 100%; }
+.product-price { display: table; width: 100%; margin: 0 auto; }
   .product-price:before, .product-price:after {
     display: table-cell;
     width: 50%;
@@ -2297,11 +2293,7 @@ line-height: 24px;	 }
 .product-price-empty {
   color: #cecece; }
 
-.product-info {
-  font-weight: normal;
-  line-height: 1.25;
-  max-height: 2.5em;
-  text-align: center; }
+.product-info { font-weight: normal; line-height: 1.2; height: 50px; text-align: center; padding: 5px 3px; }
 
 .product-counter {
   position: relative;
@@ -3216,10 +3208,7 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
 .active > .primary-service:before, .primary-service:hover:before {
   background-position: -239px -112px; }
 
-#reset {
-	margin:20px 0 0 0;
-	width:231px;
-}
+#reset { margin: 20px 0 0 20px; width: 231px; }
 .chosen-container .chosen-drop li:before {
 	content: '';
 	position: relative;
