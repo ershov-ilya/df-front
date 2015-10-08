@@ -1,4 +1,4 @@
-/*
+﻿/*
 	Paginator 3000
 	- idea by ecto (ecto.ru)
 	- coded by karaboz (karaboz.ru)
@@ -249,6 +249,7 @@ Paginator.prototype.drawPages = function(){
 		this.html.scrollThumb.xPos = this.html.table.offsetWidth - this.html.scrollThumb.offsetWidth;
 		this.moveScrollThumb();
 	}
+
 
 	
 

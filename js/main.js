@@ -1,4 +1,4 @@
-	function serviz_filter_init() {
+﻿	function serviz_filter_init() {
 		/* выплывание меню
 		$(".serviz_filter_caption").click(function() {
 			$(".serviz_filter").find(".serviz_filter_list").each(function() {
