@@ -1380,7 +1380,7 @@ line-height: 24px;	 }
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 18px;
+  font-size: 0px;
   font-weight: normal;
   font-style: italic;
   line-height: 1.25;
