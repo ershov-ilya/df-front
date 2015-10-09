@@ -459,8 +459,8 @@ select {
 .wrapper {
   padding: 56px 0 0 110px; }
 
-.container {
-  padding: 0 18px; }
+.container { 
+  padding: 10px 18px; }
   .container:after {
     content: "";
     display: table;
@@ -3558,7 +3558,7 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
 .menuoff{ background: #FFFFFF; width: 220px; }
 #clearmenu { position: fixed; top: 56px; left: 0px; width: 1170px; height: 500px; display: none; }
 
-
-
+.brandlogo { float: right; margin: 0 20px; }
+.brandlogo img { display: block; }
 
 
