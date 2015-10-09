@@ -31,8 +31,9 @@ function checkRangeOverflow(){
 	
 	docState.filter.on_page=on_page;
 	docState.filter.page=page;
-	
-	console.log(docState.filter);
+	docState.filter.max_page=Math.ceil(docState.filter.total/on_page);
+	if(docState.filter.page>docState.filter.max_page) parseUrl('page',docState.filter.max_page);	
+	//console.log(docState.filter);
 }
 
 function serviz_filter_init() {
@@ -1059,15 +1060,15 @@ function parseUrl(name, value){
 		var response;
 	}
 	
-	var sp = location.href.split("?");
+	var href = location.href.split("?");
 	
-	if (sp[1]!== undefined)
+	if (href[1]!== undefined)
 	{
-		var per = sp[1].split("&");
+		var params = href[1].split("&");
 		var outer = "";
-		var replaced = 0;
+		var found = false;
 		
-		$.each(per, function(i, val)
+		$.each(params, function(i, val)
 		{
 			t_val = val.split("=");
 			if (t_val[0]==name)
@@ -1077,20 +1078,20 @@ function parseUrl(name, value){
 					return false;
 				}
 				t_val[1] = value;
-				replaced = 1;
+				found = true;
 			}
 			
 			if (t_val[0]!='')
 			outer = outer + "&" + t_val[0] + "=" + t_val[1];
 		});
 	
-		if (replaced==0) outer = outer + "&" + name + "=" + value;
+		if (found==false) outer = outer + "&" + name + "=" + value;
 	}
 	else
 		outer = "&" + name + "=" + value;
 	
 	if(respond) return response;
-	window.history.pushState(null, null, sp[0] + "?" + outer);	
+	window.history.pushState(null, null, href[0] + "?" + outer);	
 	
 	$('.popup-overlay').show();
 	$("#spinner").show();
@@ -1098,7 +1099,7 @@ function parseUrl(name, value){
 	var target = document.getElementById('spinner');
 	var spinner = new Spinner(opts).spin(target);	
 	
-	$.get(sp[0] + "?" + outer, function(data)
+	$.get(href[0] + "?" + outer, function(data)
 	{
 		var prod = $(data).find(".products").html();
 		var pag = $(data).find(".pagination").html(); 
@@ -1126,15 +1127,16 @@ function parseUrl(name, value){
 		$("#spinner").hide();
 		serviz_filter_init();
 		
-//console.log("asd");
-	$('.chosen').chosen({
-		width: '100%',
-		display_selected_options: false,
-		no_results_text: "Ничего не найдено"
-	});
+		//console.log("asd");
+		$('.chosen').chosen({
+			width: '100%',
+			display_selected_options: false,
+			no_results_text: "Ничего не найдено"
+		});
 	
 
-      //  decore_block_size();
+		//  decore_block_size();
+		//checkRangeOverflow();
 	});
 	
 }
