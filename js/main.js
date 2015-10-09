@@ -1057,44 +1057,36 @@ function submit_order(){
 function parseUrl(name, value){
 	if(typeof value == 'undefined'){
 		var respond=true;
-		var response;
 	}
 	
 	var href = location.href.split("?");
+	var params;
 	
-	if (href[1]!== undefined)
+	if (typeof href[1]!= 'undefined')
 	{
-		var params = href[1].split("&");
+		params = href[1].split("&");
 		var outer = "";
 		var found = false;
 		
-		//for(k in params){
-		
-		$.each(params, function(i, val)
-		{
-			pair = val.split("=");
+		for(k in params){
+			pair = params[k].split("=");
 			if (pair[0]==name)
 			{
-				if(respond === true) {
-					response=pair[1];
-					return false;
-				}
+				if(respond === true) return pair[1];
 				pair[1] = value;
 				found = true;
+				params[k]=pair.join('=');
 			}
-			
-			if (pair[0]!='')
-			outer = outer + "&" + pair[0] + "=" + pair[1];
-		});
-	
-		if (found==false) outer = outer + "&" + name + "=" + value;
+		}
 	}
 	else{
-		outer = "&" + name + "=" + value;
+		params=[];
+		params.push(name + "=" + value);
 	}
+	href[1]=params.join('&');
 	
-	if(respond) return response;
-	window.history.pushState(null, null, href[0] + "?" + outer);	
+	if(respond) return;
+	window.history.pushState(null, null, href.join("?"));	
 	
 	$('.popup-overlay').show();
 	$("#spinner").show();
