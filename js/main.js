@@ -1040,20 +1040,6 @@ function submit_order(){
 	}
 }
 
-function checkRangeOverflow(name, value){
-	var on_page=parseUrl('on_page');
-	if(!on_page) on_page=12;
-	
-	var page=parseUrl('page');
-	if(!page) page=1;
-	
-	docState.filter.on_page=on_page;
-	docState.filter.page=page;
-	docState.filter.max_page=Math.ceil(docState.filter.total/on_page);
-	//if(docState.filter.page>docState.filter.max_page) parseUrl('page',docState.filter.max_page);	
-	//console.log(docState.filter);
-}
-
 function parseGET(url){
     utm_keys = ['on_page','page'];
     if(!url || url == '') url = decodeURI(document.location.search);
@@ -1104,9 +1090,15 @@ function parseUrl(name, value){
 		var response;
 	}
 	
+	var env=parseGET();
+	env.total=docState.filter.total;
+	env[name]=value;
+	env.max_page=Math.ceil(env.total/env.on_page);
+	console.log(env);
+	
 	var href = location.href.split("?");
 	
-	if (href[1]!== undefined)
+	if (typeof href[1] != 'undefined')
 	{
 		var params = href[1].split("&");
 		var outer = "";
