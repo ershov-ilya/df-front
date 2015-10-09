@@ -768,7 +768,6 @@ function refreshPageCard(){
 	}	
 }
 
-// Scrollbar width
 function scrollbarWidth(){
 	var $inner = $('<div style="width:100%;height:1px;"></div>'),
 		$outer = $('<div style="width:100px;height:1px;position:absolute;top:0;left:0;visibility:hidden;overflow:scroll;"></div>').append($inner);
@@ -1280,6 +1279,10 @@ function number_format( number, decimals, dec_point, thousands_sep ) {	// Format
 
 
 	return km + kw + kd;
+}
+
+if(typeof unviewmenu == 'undefined'){
+	var unviewmenu = function(){};
 }
 
 $(document).ready(function(){
