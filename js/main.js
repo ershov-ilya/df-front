@@ -1116,6 +1116,10 @@ function parseUrl(name, value){
 				pair[1] = value;
 				found = true;
 			}
+			// Проверка на вылет из диапазона
+			if(pair[0]=='page' && env.page>env.max_page){
+				pair[1]=env.max_page;
+			}
 			
 			if (pair[0]!='')
 			outer = outer + "&" + pair[0] + "=" + pair[1];
