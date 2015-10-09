@@ -1068,27 +1068,30 @@ function parseUrl(name, value){
 		var outer = "";
 		var found = false;
 		
+		//for(k in params){
+		
 		$.each(params, function(i, val)
 		{
-			t_val = val.split("=");
-			if (t_val[0]==name)
+			pair = val.split("=");
+			if (pair[0]==name)
 			{
 				if(respond === true) {
-					response=t_val[1];
+					response=pair[1];
 					return false;
 				}
-				t_val[1] = value;
+				pair[1] = value;
 				found = true;
 			}
 			
-			if (t_val[0]!='')
-			outer = outer + "&" + t_val[0] + "=" + t_val[1];
+			if (pair[0]!='')
+			outer = outer + "&" + pair[0] + "=" + pair[1];
 		});
 	
 		if (found==false) outer = outer + "&" + name + "=" + value;
 	}
-	else
+	else{
 		outer = "&" + name + "=" + value;
+	}
 	
 	if(respond) return response;
 	window.history.pushState(null, null, href[0] + "?" + outer);	
