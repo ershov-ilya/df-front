@@ -23,6 +23,15 @@ var opts = {
 };
 
 function checkRangeOverflow(){
+	var on_page=parseUrl('on_page');
+	if(!on_page) on_page=12;
+	
+	var page=parseUrl('page');
+	if(!page) page=1;
+	
+	docState.filter.on_page=on_page;
+	docState.filter.page=page;
+	
 	console.log(docState.filter);
 }
 
@@ -1045,6 +1054,10 @@ function submit_order(){
 }
 
 function parseUrl(name, value){
+	if(typeof value == 'undefined'){
+		var respond=true;
+		var response;
+	}
 	
 	var sp = location.href.split("?");
 	
@@ -1059,8 +1072,12 @@ function parseUrl(name, value){
 			t_val = val.split("=");
 			if (t_val[0]==name)
 			{
-			t_val[1] = value;
-					replaced = 1;
+				if(respond === true) {
+					response=t_val[1];
+					return false;
+				}
+				t_val[1] = value;
+				replaced = 1;
 			}
 			
 			if (t_val[0]!='')
@@ -1072,6 +1089,7 @@ function parseUrl(name, value){
 	else
 		outer = "&" + name + "=" + value;
 	
+	if(respond) return response;
 	window.history.pushState(null, null, sp[0] + "?" + outer);	
 	
 	$('.popup-overlay').show();
