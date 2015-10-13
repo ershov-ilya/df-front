@@ -176,7 +176,7 @@ $(function(){
 				var tail = window.location.href.slice(window.location.href.indexOf('?') + 1)
 			else 
 				var tail = '';
-			$.post("/api/filter-generation.html.html"+tail, { prop:prop_value}, function(data)
+			$.post("/api/filter-generation/"+tail, { prop:prop_value}, function(data)
 			{
 				$("#propOutput").html(data);
 				
@@ -241,7 +241,7 @@ $(function(){
 		var code = $(this).parent().parent().parent().attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
-		$.get("/api/card/edit.html?code="+code+"&count="+count, function(data)
+		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshPageCard();
@@ -253,7 +253,7 @@ $(function(){
 		var code = $(this).parent().parent().parent().attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
-		$.get("/api/card/edit.html?code="+code+"&count="+count, function(data)
+		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshPageCard();
@@ -268,7 +268,7 @@ $(function(){
 		var code = $(this).parent().attr("data-code");
 		$(this).parent().remove();
 		
-		$.get("/api/card/delete.html?code="+code, function(data)
+		$.get("/api/card/delete/?code="+code, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshPageCard();
@@ -502,7 +502,7 @@ $(function(){
 		var code = $(this).parent().attr("data-code");
 		$(this).parent().remove();
 		
-		$.get("/api/card/delete.html?code="+code, function(data)
+		$.get("/api/card/delete/?code="+code, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshCard();
@@ -523,7 +523,7 @@ function update_filter() {
 		var prop_value = $("#prop-hidden-value").val();
 		if (prop_value!='')
 		{
-			$.post("/api/filter-generation.html.html"+window.location.href.slice(window.location.href.indexOf('?') + 1), { prop:prop_value}, function(data)
+			$.post("/api/filter-generation/"+window.location.href.slice(window.location.href.indexOf('?') + 1), { prop:prop_value}, function(data)
 			{
 				$("#propOutput").html(data);
                 $(".catalogue-filter").each(function(i){
@@ -643,7 +643,7 @@ function addSetCard(){
 		}
 	});
 
-    $.get("/api/card/add.html?type=serviz"+$url_ser, function(data)
+    $.get("/api/card/add/?type=serviz"+$url_ser, function(data)
     {
         $(".sidebar-cart").html(data);
         refreshCard();
@@ -756,7 +756,7 @@ function getOption(){
 function refreshPageCard(){
 	if ($(".cart-item").length)
 	{
-		$.get("/account/korzina.html", function(data)
+		$.get("/account/korzina/", function(data)
 		{
 			$(".container").html($(data).find(".container").html());
 			refreshCard();
@@ -777,7 +777,7 @@ function scrollbarWidth(){
 }
 
 function refreshCard(){
-	$.get("/api/card/refresh.html", function(data)
+	$.get("/api/card/refresh/", function(data)
 	{
 		$(".sidebar-products").html(data);
 		initAfterRefresh();
@@ -799,7 +799,7 @@ function initAfterRefresh(){
 		var code = $(this).parent().parent().parent().attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
-		$.get("/api/card/edit.html?code="+code+"&count="+count, function(data)
+		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshCard();
@@ -812,7 +812,7 @@ function initAfterRefresh(){
 		var code = $(this).parent().parent().parent().attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
-		$.get("/api/card/edit.html?code="+code+"&count="+count, function(data)
+		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshCard();
@@ -825,7 +825,7 @@ function initAfterRefresh(){
 		var code = $(this).parent().attr("data-code");
 		$(this).parent().remove();
 		
-		$.get("/api/card/delete.html?code="+code, function(data)
+		$.get("/api/card/delete/?code="+code, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshCard();
@@ -836,7 +836,7 @@ function initAfterRefresh(){
 }
 
 function addCard(code, url){	
-	$.post("/api/card/add.html?code="+code, { post_url:url }, function(data)
+	$.post("/api/card/add/?code="+code, { post_url:url }, function(data)
 	{
 		$(".sidebar-cart").html(data);
 		refreshCard();
@@ -862,7 +862,7 @@ function popupInit(){
 		{
 			var $popup = $('#fastview-popup');
 			
-			$.get("/api/zapros-czenyi.html", function(data)
+			$.get("/api/zapros-czenyi/", function(data)
 			{
 				$popup.html(data);
 				
@@ -907,7 +907,7 @@ function popupInit(){
 					
 					if ($ajaxbox_name.val()!='' && $ajaxbox_contact.val()!='')
 					{
-						$.post("/api/zapros-czenyi.html", { name: $ajaxbox_name.val(), contact: $ajaxbox_contact.val(), code: $this_code }, function()
+						$.post("/api/zapros-czenyi/", { name: $ajaxbox_name.val(), contact: $ajaxbox_contact.val(), code: $this_code }, function()
 						{
 							$ajaxbox_name.val("");
 							$ajaxbox_contact.val("");
@@ -930,7 +930,7 @@ function popupInit(){
 			var popup_art = $(this).attr("data-popup-art");
 			var data_url = $(this).attr("data-url");
 			
-			$.get("/api/fastview.html.html?art="+popup_art+"&data_url="+data_url, function(data_html)
+			$.get("/api/fastview/?art="+popup_art+"&data_url="+data_url, function(data_html)
 			{
 				$popup.html(data_html);
 				
@@ -1012,7 +1012,7 @@ function submit_order(){
 	
 	if ($card.val()!='')
 	{
-		$.get("/api/card/card-check.html?card="+$card.val(), function(data)
+		$.get("/api/card/card-check/?card="+$card.val(), function(data)
 		{
 			if (data=='ok')
 			{
