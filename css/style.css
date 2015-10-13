@@ -504,8 +504,8 @@ select {
    ======================= */
 .header {
   background-color: #0f1a40;
-  background-image: -webkit-linear-gradient(left, #0f1a40 0%, #111d4a 50%, #141f54 100%);
-  background-image: linear-gradient(to right,#0f1a40 0%, #111d4a 50%, #141f54 100%);
+  background-image: -webkit-linear-gradient(to bottom, #182464 0%, #101b43 100%);
+  background-image: linear-gradient(to bottom, #182464 0%, #101b43 100%);
   position: fixed;
   z-index: 100;
   top: 0;
