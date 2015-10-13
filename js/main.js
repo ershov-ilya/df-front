@@ -478,11 +478,6 @@ $(function(){
 	    autoplaySpeed: 500
 	});
 
-	$(".header-logo").click(function()
-	{
-		$(window).attr("location", "http://www.domfarfora.ru/");
-	});
-	
 	// Spinner
 	$('.spinner2').spinner({
 		min: 1,
