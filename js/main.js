@@ -22,10 +22,6 @@ var opts = {
 	left: '50%' // Left position relative to parent
 };
 
-function checkRangeOverflow(){
-	console.log(docState.filter);
-}
-
 function serviz_filter_init() {
 	/* выплывание меню
 	$(".serviz_filter_caption").click(function() {
@@ -180,7 +176,7 @@ $(function(){
 				var tail = window.location.href.slice(window.location.href.indexOf('?') + 1)
 			else 
 				var tail = '';
-			$.post("/api/filter-generation.html.html"+tail, { prop:prop_value}, function(data)
+			$.post("/api/filter-generation/"+tail, { prop:prop_value}, function(data)
 			{
 				$("#propOutput").html(data);
 				
@@ -245,7 +241,7 @@ $(function(){
 		var code = $(this).parent().parent().parent().attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
-		$.get("/api/card/edit.html?code="+code+"&count="+count, function(data)
+		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshPageCard();
@@ -257,7 +253,7 @@ $(function(){
 		var code = $(this).parent().parent().parent().attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
-		$.get("/api/card/edit.html?code="+code+"&count="+count, function(data)
+		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshPageCard();
@@ -272,7 +268,7 @@ $(function(){
 		var code = $(this).parent().attr("data-code");
 		$(this).parent().remove();
 		
-		$.get("/api/card/delete.html?code="+code, function(data)
+		$.get("/api/card/delete/?code="+code, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshPageCard();
@@ -482,11 +478,6 @@ $(function(){
 	    autoplaySpeed: 500
 	});
 
-	$(".header-logo").click(function()
-	{
-		$(window).attr("location", "http://www.domfarfora.ru/");
-	});
-	
 	// Spinner
 	$('.spinner2').spinner({
 		min: 1,
@@ -506,7 +497,7 @@ $(function(){
 		var code = $(this).parent().attr("data-code");
 		$(this).parent().remove();
 		
-		$.get("/api/card/delete.html?code="+code, function(data)
+		$.get("/api/card/delete/?code="+code, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshCard();
@@ -527,7 +518,7 @@ function update_filter() {
 		var prop_value = $("#prop-hidden-value").val();
 		if (prop_value!='')
 		{
-			$.post("/api/filter-generation.html.html"+window.location.href.slice(window.location.href.indexOf('?') + 1), { prop:prop_value}, function(data)
+			$.post("/api/filter-generation/"+window.location.href.slice(window.location.href.indexOf('?') + 1), { prop:prop_value}, function(data)
 			{
 				$("#propOutput").html(data);
                 $(".catalogue-filter").each(function(i){
@@ -647,7 +638,7 @@ function addSetCard(){
 		}
 	});
 
-    $.get("/api/card/add.html?type=serviz"+$url_ser, function(data)
+    $.get("/api/card/add/?type=serviz"+$url_ser, function(data)
     {
         $(".sidebar-cart").html(data);
         refreshCard();
@@ -760,7 +751,7 @@ function getOption(){
 function refreshPageCard(){
 	if ($(".cart-item").length)
 	{
-		$.get("/account/korzina.html", function(data)
+		$.get("/account/korzina/", function(data)
 		{
 			$(".container").html($(data).find(".container").html());
 			refreshCard();
@@ -781,7 +772,7 @@ function scrollbarWidth(){
 }
 
 function refreshCard(){
-	$.get("/api/card/refresh.html", function(data)
+	$.get("/api/card/refresh/", function(data)
 	{
 		$(".sidebar-products").html(data);
 		initAfterRefresh();
@@ -803,7 +794,7 @@ function initAfterRefresh(){
 		var code = $(this).parent().parent().parent().attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
-		$.get("/api/card/edit.html?code="+code+"&count="+count, function(data)
+		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshCard();
@@ -816,7 +807,7 @@ function initAfterRefresh(){
 		var code = $(this).parent().parent().parent().attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
-		$.get("/api/card/edit.html?code="+code+"&count="+count, function(data)
+		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshCard();
@@ -829,7 +820,7 @@ function initAfterRefresh(){
 		var code = $(this).parent().attr("data-code");
 		$(this).parent().remove();
 		
-		$.get("/api/card/delete.html?code="+code, function(data)
+		$.get("/api/card/delete/?code="+code, function(data)
 		{
 			$(".sidebar-cart").html(data);
 			refreshCard();
@@ -840,13 +831,21 @@ function initAfterRefresh(){
 }
 
 function addCard(code, url){	
-	$.post("/api/card/add.html?code="+code, { post_url:url }, function(data)
+	$.post("/api/card/add/?code="+code, { post_url:url }, function(data)
 	{
 		$(".sidebar-cart").html(data);
 		refreshCard();
 	});
-
+	flashCartButton();
 	return false;
+}
+
+function flashCartButton(){
+	var $el=$('.primary-cart').closest('li');
+	$el.addClass('active');
+	setTimeout(function(){
+		$el.removeClass('active');
+	}, 300);
 }
 
 function popupInit(){	
@@ -866,7 +865,7 @@ function popupInit(){
 		{
 			var $popup = $('#fastview-popup');
 			
-			$.get("/api/zapros-czenyi.html", function(data)
+			$.get("/api/zapros-czenyi/", function(data)
 			{
 				$popup.html(data);
 				
@@ -911,7 +910,7 @@ function popupInit(){
 					
 					if ($ajaxbox_name.val()!='' && $ajaxbox_contact.val()!='')
 					{
-						$.post("/api/zapros-czenyi.html", { name: $ajaxbox_name.val(), contact: $ajaxbox_contact.val(), code: $this_code }, function()
+						$.post("/api/zapros-czenyi/", { name: $ajaxbox_name.val(), contact: $ajaxbox_contact.val(), code: $this_code }, function()
 						{
 							$ajaxbox_name.val("");
 							$ajaxbox_contact.val("");
@@ -934,7 +933,7 @@ function popupInit(){
 			var popup_art = $(this).attr("data-popup-art");
 			var data_url = $(this).attr("data-url");
 			
-			$.get("/api/fastview.html.html?art="+popup_art+"&data_url="+data_url, function(data_html)
+			$.get("/api/fastview/?art="+popup_art+"&data_url="+data_url, function(data_html)
 			{
 				$popup.html(data_html);
 				
@@ -1016,7 +1015,7 @@ function submit_order(){
 	
 	if ($card.val()!='')
 	{
-		$.get("/api/card/card-check.html?card="+$card.val(), function(data)
+		$.get("/api/card/card-check/?card="+$card.val(), function(data)
 		{
 			if (data=='ok')
 			{
@@ -1044,35 +1043,99 @@ function submit_order(){
 	}
 }
 
+function parseGET(url){
+    utm_keys = ['on_page','page'];
+    if(!url || url == '') url = decodeURI(document.location.search);
+    if(url.indexOf('?') < 0) return {};
+
+    var GET = {},
+        OTHER = [],
+        params = [],
+        key = [],
+        split=[],
+        new_url;
+
+    split = url.split('?');
+    new_url=window.location.pathname;
+    url = split[1];
+
+
+    if(url.indexOf('#')!=-1){
+        url = url.substr(0,url.indexOf('#'));
+    }
+    if(url.indexOf('&') > -1){ params = url.split('&');} else {params[0] = url; }
+
+    var r,z;
+    for (r=0; r<params.length; r++){
+        for (z=0; z<utm_keys.length; z++){
+            if(params[r].indexOf(utm_keys[z]+'=') > -1){
+                if(params[r].indexOf('=') > -1) {
+                    key = params[r].split('=');
+                    GET[key[0]]=key[1];
+                }
+            }
+        }
+
+        //
+        key = params[r].split('=');
+        if(utm_keys.indexOf(key[0])==-1) {
+            OTHER.push(params[r]);
+        }
+    }
+    if(OTHER.length) new_url+='?'+OTHER.join('&');
+    if(window.location.hash) new_url+=window.location.hash;
+    return (GET);
+};
+
 function parseUrl(name, value){
+	if(typeof value == 'undefined'){
+		var respond=true;
+		var response;
+	}
 	
-	var sp = location.href.split("?");
+	var env=parseGET();
+	env.total=docState.filter.total;
+	env[name]=value;
+	env.max_page=Math.ceil(env.total/env.on_page);
+	console.log(env);
 	
-	if (sp[1]!== undefined)
+	var href = location.href.split("?");
+	
+	if (typeof href[1] != 'undefined')
 	{
-		var per = sp[1].split("&");
+		var params = href[1].split("&");
 		var outer = "";
-		var replaced = 0;
+		var found = false;
 		
-		$.each(per, function(i, val)
+		$.each(params, function(i, val)
 		{
-			t_val = val.split("=");
-			if (t_val[0]==name)
+			pair = val.split("=");
+			if (pair[0]==name)
 			{
-			t_val[1] = value;
-					replaced = 1;
+				if(respond === true) {
+					response=pair[1];
+					return false;
+				}
+				pair[1] = value;
+				found = true;
+			}
+			// Проверка на вылет из диапазона
+			if(pair[0]=='page' && env.page>env.max_page){
+				pair[1]=env.max_page;
 			}
 			
-			if (t_val[0]!='')
-			outer = outer + "&" + t_val[0] + "=" + t_val[1];
+			if (pair[0]!='')
+			outer = outer + "&" + pair[0] + "=" + pair[1];
 		});
 	
-		if (replaced==0) outer = outer + "&" + name + "=" + value;
+		if (found==false) outer = outer + "&" + name + "=" + value;
 	}
-	else
+	else{
 		outer = "&" + name + "=" + value;
+	}
 	
-	window.history.pushState(null, null, sp[0] + "?" + outer);	
+	if(respond) return response;
+	window.history.pushState(null, null, href[0] + "?" + outer);	
 	
 	$('.popup-overlay').show();
 	$("#spinner").show();
@@ -1080,7 +1143,7 @@ function parseUrl(name, value){
 	var target = document.getElementById('spinner');
 	var spinner = new Spinner(opts).spin(target);	
 	
-	$.get(sp[0] + "?" + outer, function(data)
+	$.get(href[0] + "?" + outer, function(data)
 	{
 		var prod = $(data).find(".products").html();
 		var pag = $(data).find(".pagination").html(); 
@@ -1108,15 +1171,16 @@ function parseUrl(name, value){
 		$("#spinner").hide();
 		serviz_filter_init();
 		
-//console.log("asd");
-	$('.chosen').chosen({
-		width: '100%',
-		display_selected_options: false,
-		no_results_text: "Ничего не найдено"
-	});
+		//console.log("asd");
+		$('.chosen').chosen({
+			width: '100%',
+			display_selected_options: false,
+			no_results_text: "Ничего не найдено"
+		});
 	
 
-      //  decore_block_size();
+		//  decore_block_size();
+		//checkRangeOverflow();
 	});
 	
 }
