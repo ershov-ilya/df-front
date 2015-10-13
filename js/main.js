@@ -841,8 +841,16 @@ function addCard(code, url){
 		$(".sidebar-cart").html(data);
 		refreshCard();
 	});
-
+	flashCartButton();
 	return false;
+}
+
+function flashCartButton(){
+	var $el=$('.primary-cart').closest('li');
+	$el.addClass('active');
+	setTimeout(function(){
+		$el.removeClass('active');
+	}, 300);
 }
 
 function popupInit(){	
