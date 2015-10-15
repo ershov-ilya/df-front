@@ -174,7 +174,7 @@ body {
   min-width: 1200px;
   min-height: 100%;
   padding-bottom: 125px;
-  color: black; }
+  color: #333333; }
   
  
 
@@ -1969,8 +1969,7 @@ line-height: 24px;	 }
   .item > *:last-child {
     margin-bottom: 0; }
 
-.item-caption {
-  font-size: 30px; }
+.item-caption { font-size: 30px; text-transform: none; }
 
 .item-producer {
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
