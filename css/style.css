@@ -1770,7 +1770,7 @@ line-height: 24px;	 }
   float: left;
   width: 165px; }
 
-.sort-options { list-style: none; margin: 0; padding: 0; }
+.sort-options { list-style: none; margin: 0; padding: 0; float: left; }
   .sort-options > li {
     float: left;
     margin-left: 25px; }
