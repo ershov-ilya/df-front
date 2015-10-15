@@ -3562,3 +3562,8 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
 .brandlogo img { display: block; }
 
 
+.sidebar-products-item .product-counter { width: 160px; }
+span.ui-spinner.ui-widget.ui-widget-content.ui-corner-all a {
+    width: 50px;
+    display: inline-block;
+}
