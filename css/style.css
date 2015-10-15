@@ -174,7 +174,7 @@ body {
   min-width: 1200px;
   min-height: 100%;
   padding-bottom: 125px;
-  color: #333333; }
+  color: black; }
   
  
 
@@ -1624,7 +1624,10 @@ line-height: 24px;	 }
   font-weight: normal;
   font-style: italic; }
 
-.about-box { display: table; width: 1090px; margin: 0 auto; padding-bottom: 30px; } 
+.about-box {
+  display: table;
+  width: 1090px;
+  margin: 0 auto; }
 
 .about-box-text {
   display: table-cell;
@@ -1767,12 +1770,16 @@ line-height: 24px;	 }
   float: left;
   width: 165px; }
 
-.sort-options { list-style: none; margin: 0; padding: 0; float: left; }
+.sort-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right; }
   .sort-options > li {
     float: left;
     margin-left: 25px; }
     .sort-options > li:first-child {
-      margin-left: 0; border-left: 1px solid #DADADA; padding-left: 10px; }
+      margin-left: 0; }
 
 /* ==|====================
    Modules/Price slider
@@ -1962,7 +1969,8 @@ line-height: 24px;	 }
   .item > *:last-child {
     margin-bottom: 0; }
 
-.item-caption { font-size: 36px; text-transform: none; }
+.item-caption {
+  font-size: 30px; }
 
 .item-producer {
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
@@ -2219,10 +2227,10 @@ line-height: 24px;	 }
 
 .product { position: relative; width: 250px; margin: 0 auto; }
 .product a { display: block;  width: 252px; color: black; text-decoration: none; border: 1px solid #FFFFFF; }
-.product > .button { width: 190px; margin: 0 auto; color: #444444; background: #FFFFFF; font-size: 13px; text-transform: uppercase; height: 30px; line-height: 23px; padding: 3px 18px; margin-top: 2px; margin-bottom: 5px; text-align: center; border: 1px solid #EAEAEA; }
+.product > .button { color: #444444; background: #FFFFFF; font-size: 13px; text-transform: uppercase; height: 30px; line-height: 23px; padding: 3px 18px; margin-top: 5px; text-align: center; border: 1px solid #EAEAEA; }
 .product > .button:hover { color: #FFFFFF; background: #363F70; border: 1px solid #999999;  }
 
-.product-pic { position: relative; width: 250px; height: 250px; margin-bottom: 5px; }
+.product-pic { position: relative; margin-bottom: 10px; }
 .product-pic > img , .cart-product > .product-pic > a > img { display: block; width: 250px; height: 250px; }  
 
 .product-popup {
@@ -2792,9 +2800,9 @@ line-height: 24px;	 }
       color: white;
       background: #aeb4b6; }
 
-.view { 
+.view {
   list-style: none;
-  margin-top: 15px;
+  margin: 0;
   padding: 0;
   font-size: 16px;
   font-weight: bold;
@@ -3554,7 +3562,7 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
 .brandlogo img { display: block; }
 
 
-.sidebar-products-item .product-counter { width: 160px; }
+.product-counter { width: 150px; }
 span.ui-spinner.ui-widget.ui-widget-content.ui-corner-all a {
     width: 50px;
     display: inline-block;
