@@ -1624,10 +1624,7 @@ line-height: 24px;	 }
   font-weight: normal;
   font-style: italic; }
 
-.about-box {
-  display: table;
-  width: 1090px;
-  margin: 0 auto; }
+.about-box { display: table; width: 1090px; margin: 0 auto; padding-bottom: 30px; } 
 
 .about-box-text {
   display: table-cell;
