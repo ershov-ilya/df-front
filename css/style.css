@@ -3541,7 +3541,7 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
 .mphone a:hover {color:#fff; text-decoration:none;}
 
 
-.header-servizy { left: 414px; position: fixed; top: 0; }
+.header-servizy { left: 648px; position: fixed; top: 0; }
 .header-servizy a {color:#fff; text-decoration: none; display: block; text-align: center; font-weight: 500; padding: 8px; ont-size: 13px; width: 130px; text-transform: uppercase; text-shadow: 1px 1px 2px black, 0 0 11px #888888; }
 .header-servizy a:hover {color:#fff; text-decoration: none; text-shadow: 1px 1px 5px black, 0 0 11px #333333; background: #314E8F; }
 
