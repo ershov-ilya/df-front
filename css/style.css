@@ -866,7 +866,7 @@ line-height: 24px;	 }
 /* ==|====================
    Modules/Search
    ======================= */
-.search { position: fixed; top: 0; left: 690px; padding: 12px 0 12px 14px; background: white; }
+.search { position: fixed; top: 0; left: 924px; padding: 12px 0 12px 14px; background: white; }
   .search:before {
     height: 0;
     width: 0;
@@ -3536,7 +3536,7 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
     max-width: 100%;
     }
 	
-.mphone {position:fixed;left: 545px; top: 4px;  border-left: 1px solid #fff;   border-right: 1px solid #fff;padding: 0 0 0 15px;}
+.mphone {position:fixed;left: 779px; top: 4px;  border-left: 1px solid #fff;   border-right: 1px solid #fff;padding: 0 0 0 15px;}
 .mphone a {color:#fff; text-decoration:none; display: block; font-weight: 500; font-size: 14px; width: 130px; }
 .mphone a:hover {color:#fff; text-decoration:none;}
 
