@@ -1770,11 +1770,7 @@ line-height: 24px;	 }
   float: left;
   width: 165px; }
 
-.sort-options {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  float: right; }
+.sort-options { list-style: none; margin: 0; padding: 0; border-right: 1px solid #DADADA; }
   .sort-options > li {
     float: left;
     margin-left: 25px; }
