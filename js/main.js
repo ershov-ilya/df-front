@@ -120,12 +120,6 @@ $(function(){
 	$("#reset").attr("href", window.location.pathname);
 	//$('#search').addClass('search_active');
 	
-	
-	/*
-	Dropdown with Multiple checkbox select with jQuery - May 27, 2013
-	(c) 2013 @ElmahdiMahmoud
-	license: http://www.opensource.org/licenses/mit-license.php
-*/ 
 /*
 	Dropdown with Multiple checkbox select with jQuery - May 27, 2013
 	(c) 2013 @ElmahdiMahmoud
@@ -135,7 +129,8 @@ $(function(){
 	serviz_filter_init();
 	serviz_menublocks_open();
 	
-	
+	/*
+	// Добавить скидочную карту
 	$(".cart-footer .cart-discount a").click(function()
 	{
 		$a = $(this);
@@ -145,6 +140,7 @@ $(function(){
 		$input.show();
         $(".product-remove-btn.discount").css("display","inline-block");
 	});
+	*/
 
 	$("#order [name='delivery']").click(function()
 	{
