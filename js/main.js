@@ -1009,6 +1009,7 @@ function submit_order(){
 	$card_number = $("#card_number");
 	$card_number.val("");
 	
+	/*
 	if ($card.val()!='')
 	{
 		$.get("/api/card/card-check/?card="+$card.val(), function(data)
@@ -1037,6 +1038,13 @@ function submit_order(){
 		$(".cart-footer").hide();
 		$("#order").show();
 	}
+	*/
+	
+		$(".container h2").html("Оформление заказа");
+		$(".cart").hide();
+		$(".cart-footer").hide();
+		$("#order").show();
+
 }
 
 function parseGET(url){
