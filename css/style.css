@@ -866,6 +866,9 @@ line-height: 24px;	 }
 /* ==|====================
    Modules/Search
    ======================= */
+   form#search {
+     min-width: 314px;
+   }
 .search { position: fixed; top: 0; left: 978px; padding: 12px 0 12px 14px; background: white; }
   .search:before {
     height: 0;
