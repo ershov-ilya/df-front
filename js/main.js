@@ -823,7 +823,8 @@ function initAfterRefresh(){
 			refreshPageCard();
 		});
 		return false;
-	});	
+	});
+	$('#btnDiscountController').click(Controller.discount.activateDialog);
 }
 
 function addCard(code, url){	
