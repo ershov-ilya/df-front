@@ -2542,7 +2542,7 @@ line-height: 24px;	 }
 
 .cart-total {
   float: left;
-  width: 50%;
+  width: 60%;
   padding: 0 9px 0 90px; }
 
 .cart-total-price {
@@ -2554,7 +2554,9 @@ line-height: 24px;	 }
 .cart-discount {
   font-size: 10px;
   font-weight: normal;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin-bottom:8px;
+  }
   .cart-discount a {
     color: black; }
     .cart-discount a:hover {
@@ -2562,7 +2564,7 @@ line-height: 24px;	 }
 
 .cart-footer-btn-holder {
   float: left;
-  width: 50%;
+  width: 40%;
   padding: 0 9px; }
 
 .offer-text {
