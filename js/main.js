@@ -824,6 +824,7 @@ function initAfterRefresh(){
 		});
 		return false;
 	});
+	
 	$('#btnDiscountController').click(Controller.discount.activateDialog);
 }
 
@@ -1434,3 +1435,8 @@ $(document).ready(function(){
     });
 
 });
+
+// Если нужные объекты не объявлены
+if(typeof Controller == 'undefined') Controller = {};
+if(typeof Controller.discount == 'undefined') Controller.discount = {};
+if(typeof Controller.discount.activateDialog == 'undefined') Controller.discount.activateDialog = null;
