@@ -869,7 +869,7 @@ line-height: 24px;	 }
    form#search {
      min-width: 314px;
    }
-.search { position: fixed; top: 0; left: 978px; padding: 12px 0 12px 14px; background: white; }
+.search { position: fixed; top: 0; left: 848px; padding: 12px 0 12px 14px; background: white; }
   .search:before {
     height: 0;
     width: 0;
@@ -2542,7 +2542,7 @@ line-height: 24px;	 }
 
 .cart-total {
   float: left;
-  width: 50%;
+  width: 60%;
   padding: 0 9px 0 90px; }
 
 .cart-total-price {
@@ -2554,7 +2554,9 @@ line-height: 24px;	 }
 .cart-discount {
   font-size: 10px;
   font-weight: normal;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin-bottom:8px;
+  }
   .cart-discount a {
     color: black; }
     .cart-discount a:hover {
@@ -2562,7 +2564,7 @@ line-height: 24px;	 }
 
 .cart-footer-btn-holder {
   float: left;
-  width: 50%;
+  width: 40%;
   padding: 0 9px; }
 
 .offer-text {
@@ -3539,12 +3541,12 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
     max-width: 100%;
     }
 	
-.mphone {position:fixed;left: 832px; top: 4px;  border-left: 1px solid #fff;   border-right: 1px solid #fff;padding: 0 0 0 15px;}
+.mphone {position:fixed;left: 702px; top: 4px;  border-left: 1px solid #fff;   border-right: 1px solid #fff;padding: 0 0 0 15px;}
 .mphone a {color:#fff; text-decoration:none; display: block; font-weight: 500; font-size: 14px; width: 130px; }
 .mphone a:hover {color:#fff; text-decoration:none;}
 
 
-.header-servizy { left: 702px; position: fixed; top: 0; }
+.header-servizy { left: 572px; position: fixed; top: 0; }
 .header-servizy a {color:#fff; text-decoration: none; display: block; text-align: center; font-weight: 500; padding: 8px; ont-size: 13px; width: 130px; text-transform: uppercase; text-shadow: 1px 1px 2px black, 0 0 11px #888888; }
 .header-servizy a:hover {color:#fff; text-decoration: none; text-shadow: 1px 1px 5px black, 0 0 11px #333333; background: #314E8F; }
 
