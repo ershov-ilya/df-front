@@ -120,12 +120,6 @@ $(function(){
 	$("#reset").attr("href", window.location.pathname);
 	//$('#search').addClass('search_active');
 	
-	
-	/*
-	Dropdown with Multiple checkbox select with jQuery - May 27, 2013
-	(c) 2013 @ElmahdiMahmoud
-	license: http://www.opensource.org/licenses/mit-license.php
-*/ 
 /*
 	Dropdown with Multiple checkbox select with jQuery - May 27, 2013
 	(c) 2013 @ElmahdiMahmoud
@@ -135,7 +129,8 @@ $(function(){
 	serviz_filter_init();
 	serviz_menublocks_open();
 	
-	
+	/*
+	// Добавить скидочную карту
 	$(".cart-footer .cart-discount a").click(function()
 	{
 		$a = $(this);
@@ -145,6 +140,7 @@ $(function(){
 		$input.show();
         $(".product-remove-btn.discount").css("display","inline-block");
 	});
+	*/
 
 	$("#order [name='delivery']").click(function()
 	{
@@ -827,7 +823,9 @@ function initAfterRefresh(){
 			refreshPageCard();
 		});
 		return false;
-	});	
+	});
+	
+	$('#btnDiscountController').click(Controller.discount.activateDialog);
 }
 
 function addCard(code, url){	
@@ -1013,6 +1011,7 @@ function submit_order(){
 	$card_number = $("#card_number");
 	$card_number.val("");
 	
+	/*
 	if ($card.val()!='')
 	{
 		$.get("/api/card/card-check/?card="+$card.val(), function(data)
@@ -1041,6 +1040,13 @@ function submit_order(){
 		$(".cart-footer").hide();
 		$("#order").show();
 	}
+	*/
+	
+		$(".container h2").html("Оформление заказа");
+		$(".cart").hide();
+		$(".cart-footer").hide();
+		$("#order").show();
+
 }
 
 function parseGET(url){
@@ -1429,3 +1435,8 @@ $(document).ready(function(){
     });
 
 });
+
+// Если нужные объекты не объявлены
+if(typeof Controller == 'undefined') Controller = {};
+if(typeof Controller.discount == 'undefined') Controller.discount = {};
+if(typeof Controller.discount.activateDialog == 'undefined') Controller.discount.activateDialog = null;
