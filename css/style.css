@@ -3566,3 +3566,9 @@ span.ui-spinner.ui-widget.ui-widget-content.ui-corner-all a {
     width: 50px;
     display: inline-block;
 }
+
+/* vector icons*/
+i.menu-icon {
+    color: #fff;
+    font-size: 20px;
+}
