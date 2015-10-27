@@ -2592,7 +2592,7 @@ line-height: 24px;	 }
 }
 
 .cart-header .cell, .cart-subfooter .cell{
-    display: table-cell;
+    display: inline-block;
     width:200px;
     height: 40px;
 }
