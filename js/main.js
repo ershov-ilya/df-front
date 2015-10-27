@@ -1044,7 +1044,9 @@ function submit_order(){
 	
 		$(".container h2").html("Оформление заказа");
 		$(".cart").hide();
-		$(".cart-footer").hide();
+        $(".cart-header").hide();
+        $(".cart-subfooter").hide();
+        $(".cart-footer").hide();
 		$("#order").show();
 
 }
