@@ -787,7 +787,7 @@ function initAfterRefresh(){
 	
 	$(".ui-spinner-up").on("click", function()
 	{
-		var code = $(this).closest('.cart-product').attr("data-code");
+		var code = $(this).closest('.cart-product,.product').attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
 		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
@@ -800,7 +800,7 @@ function initAfterRefresh(){
 	
 	$(".ui-spinner-down").on("click", function()
 	{
-		var code = $(this).closest('.cart-product').attr("data-code");
+		var code = $(this).closest('.cart-product,.product').attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
 		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
