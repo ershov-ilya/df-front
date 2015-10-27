@@ -2585,16 +2585,17 @@ line-height: 24px;	 }
 .cart-header,.cart-subfooter{
     padding-left: 250px;
     margin: 0 auto;
-    max-width: 1050px;
+    max-width: 1059px;
 }
-.cart-subfooter{
-    padding-bottom: 60px;
-}
-
 .cart-header .cell, .cart-subfooter .cell{
     display: inline-block;
     width:200px;
     height: 40px;
+}
+
+.cart-subfooter{
+    max-width: 1050px;
+    padding-bottom: 60px;
 }
 
 .cart-subfooter .cell{
