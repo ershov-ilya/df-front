@@ -787,7 +787,7 @@ function initAfterRefresh(){
 	
 	$(".ui-spinner-up").on("click", function()
 	{
-		var code = $(this).parent().parent().parent().attr("data-code");
+		var code = $(this).closest('.cart-product,.product').attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
 		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
@@ -800,7 +800,7 @@ function initAfterRefresh(){
 	
 	$(".ui-spinner-down").on("click", function()
 	{
-		var code = $(this).parent().parent().parent().attr("data-code");
+		var code = $(this).closest('.cart-product,.product').attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
 		
 		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
@@ -1044,7 +1044,9 @@ function submit_order(){
 	
 		$(".container h2").html("Оформление заказа");
 		$(".cart").hide();
-		$(".cart-footer").hide();
+        $(".cart-header").hide();
+        $(".cart-subfooter").hide();
+        $(".cart-footer").hide();
 		$("#order").show();
 
 }
