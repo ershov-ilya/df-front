@@ -1632,6 +1632,8 @@ line-height: 24px;	 }
   width: 1090px;
   margin: 0 auto; }
 
+.about-box h1 { text-transform: none; margin-left: 20px; margin-bottom: 10px;  } 
+
 .about-box-text {
   display: table-cell;
   width: 50%;
@@ -3565,4 +3567,8 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
 span.ui-spinner.ui-widget.ui-widget-content.ui-corner-all a {
     width: 50px;
     display: inline-block;
+}
+
+.content  {
+  
 }
