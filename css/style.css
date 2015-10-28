@@ -1647,7 +1647,7 @@ line-height: 24px;	 }
   width: 1090px;
   margin: 0 auto; }
 
-
+.about-box h1 { text-align: center; text-transform: none; }
 
 .about-box-text {
   display: table-cell;
