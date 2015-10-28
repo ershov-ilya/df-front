@@ -1647,7 +1647,7 @@ line-height: 24px;	 }
   width: 1090px;
   margin: 0 auto; }
 
-.about-box h1 { text-align: center; text-transform: none; }
+.about-box h1 { text-align: center; text-transform: none; margin-bottom: 8px; }
 
 .about-box-text {
   display: table-cell;
@@ -3634,7 +3634,7 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
 .brand-box-text { display: table-cell; width: 50%; padding: 36px 116px; vertical-align: middle; color: #333; box-shadow: 0 0 30px rgba(202, 201, 178, 0.1) inset; }
 .brand-box-pic {   display: table-cell; width: 50%; vertical-align: top; text-align: center; }
   .about-box-pic img { display: block; max-width: 100%; margin: 0 auto; }
-img.brand-logo  { display: block; opacity: 0.9; }
+img.brand-logo  { display: block; opacity: 0.9; margin: 0 auto; }
 ul.brand-links { margin: 0; padding: 0; margin-bottom: 50px; display: table; }
 ul.brand-links li { display: block;   }
 ul.brand-links li a { display:  block; padding: 4px 10px 4px 26px; border-bottom:  1px solid #DADADA; white-space: nowrap; text-decoration: none; font-size: 18px; }
