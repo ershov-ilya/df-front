@@ -1632,7 +1632,7 @@ line-height: 24px;	 }
   width: 1090px;
   margin: 0 auto; }
 
-.about-box h1 { text-transform: none; margin-left: 20px; margin-bottom: 10px;  } 
+.about-box h1 { text-transform: none; margin-left: 20px; margin-bottom: 10px; text-align: center; } 
 
 .about-box-text {
   display: table-cell;
@@ -1642,13 +1642,8 @@ line-height: 24px;	 }
   color: #333;
   box-shadow: 0 0 30px rgba(202, 201, 178, 0.1) inset; }
 
-.about-box-pic {
-  display: table-cell;
-  width: 50%;
-  vertical-align: top; }
-  .about-box-pic img {
-    display: block;
-    max-width: 100%; }
+.about-box-pic {   display: table-cell; width: 50%; vertical-align: top; text-align: center; }
+  .about-box-pic img { display: block; max-width: 100%; margin: 0 auto; }
 
 .about-quote {
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
@@ -3559,12 +3554,20 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
 .menuoff{ background: #FFFFFF; width: 220px; }
 #clearmenu { position: fixed; top: 56px; left: 0px; width: 1170px; height: 500px; display: none; }
 
-.brandlogo { float: right; margin: 0 20px; }
-.brandlogo img { display: block; }
-
+.brand-boxes { display: table; width: 1090px; margin: 0 auto; margin-bottom: 20px;  }
+.brand-box { display: table; width: 1090px; margin: 0 auto; }
+.brand-box-text { display: table-cell; width: 50%; padding: 36px 116px; vertical-align: middle; color: #333; box-shadow: 0 0 30px rgba(202, 201, 178, 0.1) inset; }
+.brand-box-pic {   display: table-cell; width: 50%; vertical-align: top; text-align: center; }
+  .about-box-pic img { display: block; max-width: 100%; margin: 0 auto; }
+img.brand-logo  { display: block; opacity: 0.9; }
+ul.brand-links { margin: 0; padding: 0; margin-bottom: 50px; display: table; }
+ul.brand-links li { display: block;   }
+ul.brand-links li a { display:  block; padding: 4px 10px 4px 26px; border-bottom:  1px solid #DADADA; white-space: nowrap; text-decoration: none; font-size: 18px; }
 
 .product-counter { width: 150px; }
 span.ui-spinner.ui-widget.ui-widget-content.ui-corner-all a {
     width: 50px;
     display: inline-block;
 }
+
+
