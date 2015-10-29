@@ -115,6 +115,22 @@ function total_price_basket() {
     return total_sum;
 }
 
+function customListeners(){
+    $("#order [name='delivery']").click(function()
+    {
+        if ($(this).val()==1)
+        {
+            $("#delivery-block").show();
+            $("#delivery-block2").hide();
+        }
+        else
+        {
+            $("#delivery-block2").show();
+            $("#delivery-block").hide();
+        }
+    });
+}
+
 $(function(){
 
 	$("#reset").attr("href", window.location.pathname);
@@ -142,19 +158,7 @@ $(function(){
 	});
 	*/
 
-	$("#order [name='delivery']").click(function()
-	{
-		if ($(this).val()==1)
-		{
-			$("#delivery-block").show();
-			$("#delivery-block2").hide();			
-		}
-		else
-		{
-			$("#delivery-block2").show();			
-			$("#delivery-block").hide();		
-		}
-	});
+    customListeners();
 	
 	$("[data-add-button]").on('click', function()
 	{
