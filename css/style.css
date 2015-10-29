@@ -698,7 +698,7 @@ select {
   .catnav-categories > li > a { text-transform: uppercase; font-size: 12px; }
   .catnav-categories > li { font-weight: 500; display: none; float: left;     /*padding: 12px 8px;*/ /*text-transform: uppercase; padding*/ }
 		.catnav-categories > li:hover {  background: #314F91; } /* надо потом через jquery сделать*/
-    .catnav-categories > li > a { display: block;  color: white; text-shadow: 1px 1px 2px black, 0 0 11px #888888; padding: 12px 8px; }
+    .catnav-categories > li > a { display: block;  color: white; text-shadow: 1px 1px 2px black, 0 0 11px #888888; padding: 9px 8px; width: 84px; text-align: center; line-height: 19px;   }
       .catnav-categories > li > a:hover {  text-shadow: 1px 1px 5px black, 0 0 11px #333333; }
     .catnav-categories > li.catnav-categories-caption {
       font-weight: 300;
@@ -3660,5 +3660,7 @@ body.stop-scrolling footer{
     float:none;
 }
 
-.way { margin-bottom: 20px; font-size: 12px; }
+.way { list-style: none; margin: 0; padding: 0; margin-bottom: 20px; font-size: 12px; color: #777777; }
 .way a { color: #666666; padding: 9px 3px; }
+.section-header .way { color: #DADADA; }
+.section-header .way a { color: #FFFFFF; }
