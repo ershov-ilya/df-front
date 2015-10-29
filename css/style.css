@@ -2790,7 +2790,7 @@ line-height: 24px;	 }
 .content-header {
   position: relative;
   min-height: 136px;
-  padding: 36px 18px 18px; }
+  padding: 10px 18px 18px; }
 .content-header h1 { text-transform: none; }
 
 
@@ -3659,3 +3659,6 @@ body.stop-scrolling footer{
     clear:both;
     float:none;
 }
+
+.way { margin-bottom: 20px; font-size: 12px; }
+.way a { color: #666666; padding: 9px 3px; }
