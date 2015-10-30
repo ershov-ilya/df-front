@@ -159,6 +159,7 @@ $(function(){
 	*/
 
     customListeners();
+    initAfterRefresh();
 	
 	$("[data-add-button]").on('click', function()
 	{
@@ -263,19 +264,6 @@ $(function(){
 	$(".ui-spinner-up").on("click", spinnerUp);	
 	$(".ui-spinner-down").on("click", spinnerDown);
 	
-	$("#realCard .product-remove-btn").on("click", function()
-	{
-		var code = $(this).parent().attr("data-code");
-		$(this).parent().remove();
-		
-		$.get("/api/card/delete/?code="+code, function(data)
-		{
-			$(".sidebar-cart").html(data);
-			refreshPageCard();
-		});
-		return false;
-	});
-
 
 
 	// Sidebar show/hide
@@ -779,6 +767,7 @@ function refreshCard(){
 	});
 }
 
+// Функция после AJAX запросов
 function initAfterRefresh(){
 	// Spinner
 	$('.spinner').spinner({
@@ -801,8 +790,22 @@ function initAfterRefresh(){
 			refreshPageCard();
 		});
 	});
-	
-	$(".ui-spinner-down").on("click", function()
+
+    $("#realCard .product-remove-btn").on("click", function()
+    {
+        var code = $(this).parent().attr("data-code");
+        $(this).parent().remove();
+
+        $.get("/api/card/delete/?code="+code, function(data)
+        {
+            $(".sidebar-cart").html(data);
+            refreshPageCard();
+        });
+        return false;
+    });
+
+
+    $(".ui-spinner-down").on("click", function()
 	{
 		var code = $(this).closest('.cart-product,.product').attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
@@ -831,6 +834,7 @@ function initAfterRefresh(){
 	
 	$('#btnDiscountController').click(Controller.discount.activateDialog);
 }
+// End of initAfterRefresh()
 
 function addCard(code, url){	
 	$.post("/api/card/add/?code="+code, { post_url:url }, function(data)
