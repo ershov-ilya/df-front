@@ -3668,6 +3668,6 @@ body.stop-scrolling footer{
 
 .altmenu { padding-bottom: 100px; }
 .altmenu > nav > ul { padding: 0; }
-.altmenu > nav > ul > li { display: block; float: left; margin: 0; margin-bottom: 10px; padding: 0; margin-right: 10px; }
-.altmenu > nav > ul > li > a { font-size: 15px; text-decoration: none; padding: 5px 3px; border-bottom: 1px solid #DADADA; }
+.altmenu > nav > ul > li { display: block; float: left; margin: 0; padding: 0; margin-right: 20px; margin-bottom: 6px;  }
+.altmenu > nav > ul > li > a { font-size: 15px; text-decoration: none; padding: 4px 3px; border-bottom: 1px solid #DADADA; }
 
