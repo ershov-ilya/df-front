@@ -1299,7 +1299,7 @@ line-height: 24px;	 }
     position: relative;
     display: none;
     float: left;
-    padding: 0px 2px 0px 0px;
+    padding: 0;
     background: white;
 }
   .promo-item:first-child {
