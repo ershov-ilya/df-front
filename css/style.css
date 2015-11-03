@@ -3671,3 +3671,18 @@ body.stop-scrolling footer{
 .altmenu > nav > ul > li { display: block; float: left; margin: 0; padding: 0; margin-right: 20px; margin-bottom: 6px;  }
 .altmenu > nav > ul > li > a { font-size: 15px; text-decoration: none; padding: 4px 3px; border-bottom: 1px solid #DADADA; }
 
+.sitemap {  }
+.sitemap > nav > ul { padding: 0; margin-bottom: 30px; }
+.sitemap > nav > ul > li { display: table-cell; font-size: 15px; font-weight: bold; padding-right: 20px; white-space: nowrap; }
+.sitemap > nav > ul > li > ul { padding-left: 15px; }
+.sitemap > nav > ul > li > ul > li { font-size: 13px; font-weight: normal; padding: 0; white-space: normal; }
+.sitemap > nav > ul > li > ul > li > ul > li { font-weight: normal; }
+
+.sitemapcat { display: table; width: 100%; }
+.sitemapcat > nav > ul { padding: 0; margin-bottom: 30px; }
+.sitemapcat > nav > ul > li { font-size: 15px; font-weight: bold;  width: 300px; min-height: 270px; display: table-cell; float: left; }
+.sitemapcat > nav > ul > li > ul { padding-left: 15px; }
+.sitemapcat > nav > ul > li > ul > li { font-size: 13px; font-weight: normal; }
+.sitemapcat > nav > ul > li > ul > li > ul > li { font-weight: normal; }
+
+
