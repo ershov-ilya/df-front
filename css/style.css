@@ -509,7 +509,7 @@ select {
 /* =======================
    Helpers
    ======================= */
-.header-logo, .dev, .primary-list > li > a:before, .search-btn:before, .login-link:before, .sidebar-up-btn:before, .promo-details:before, .promo-details:after, .promo-details-caption:before, .promo-details-caption:after, .promo2-guide-inner:before, .promo2-guide-inner:after, .about-intro-body:after, .item-photos .owl-nav > *:before, .item-photo-zoom:before, .item-novelty, .item-exclusive, .product-cart-btn, .product-novelty, .product-exclusive, .fastview-photos .owl-nav > *, .new-cart-product span:before, .user-name:before, .popup-close-btn {
+.header-logo, .dev, .primary-list > li > a:before, .search-btn:before, .login-link:before, .sidebar-up-btn:before, .promo-details:before, .promo-details:after, .promo-details-caption:before, .promo-details-caption:after, .promo2-guide-inner:before, .promo2-guide-inner:after, .about-intro-body:after, .item-photos .owl-nav > *:before, .item-photo-zoom:before, .item-novelty, .item-exclusive, .product-cart-btn, .product-novelty, .product-exclusive, .fastview-photos .owl-nav > *, .new-cart-product span:before, .user-name:before, .popup-close-btn , .hideimg {
   background-image: url(../i/sprite.png);
   background-repeat: no-repeat;
   background-size: 462px 204px; }
@@ -2057,6 +2057,7 @@ line-height: 24px;	 }
     display: block;
     width: 100%; }
 
+
 .item-photos {
   position: relative; }
   .item-photos .owl-dots {
@@ -2118,10 +2119,15 @@ line-height: 24px;	 }
   .item-photo:first-child { display: block; }
   .item-photo:hover { cursor: zoom-in; cursor: -moz-zoom-in; cursor: -webkit-zoom-in; }
 
+.item-photo-one { display: table; width: 100%; text-align: center; }
+.item-photo-one img  { display: block; margin: 0 auto; width: 672px; height: 376px; }
+.item-photo-one img:hover { cursor: zoom-in; cursor: -moz-zoom-in; cursor: -webkit-zoom-in; }
+
 #fixedblack { position: absolute; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.50); display: none; opacity: 0; z-index: 1000; }
 #fixedblack td { text-align: center; }
 #im { margin: 0 auto; position: relative; background: #fff; box-shadow: 0 0 10px white; border: 5px solid #fff; border-radius: 6px; width: 90%; height: 90%; }
-#im:hover { cursor: zoom-out; cursor: -moz-zoom-out; cursor: -webkit-zoom-out; }
+.hideimg { position: relative; width: 30px; height: 30px; float: right; right: 120px; top: 10px; z-index: 100; background-position: -190px -56px; opacity: .4; }
+#im:hover , .hideimg:hover { cursor: zoom-out; cursor: -moz-zoom-out; cursor: -webkit-zoom-out; }
 
 .item-photo-zoom {
   -webkit-transition: opacity 0.1s ease-in-out;
