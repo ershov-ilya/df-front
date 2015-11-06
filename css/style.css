@@ -1729,7 +1729,7 @@ line-height: 24px;	 }
   color: #1c3d86;
   border-top: 1px solid #b7b7b6;
   border-bottom: 1px solid #b7b7b6; }
-  .catalogue-filter-caption {  background: url("/i/arrow_down.png") no-repeat right; }
+  .catalogue-filter-caption { background: url("/i/arrow_down.png") no-repeat right; }
     .catalogue-filter_open .catalogue-filter-caption { background: url("/i/arrow_up.png") no-repeat right; }
   .catalogue-filter-price  {
   font-weight: bold;
