@@ -1429,21 +1429,27 @@ $(document).ready(function(){
 
     decore_block_size();
 
-    $(document).on("click", ".im", function () {
+    //увеличение фотографии (зум)
+		$(document).on("click", ".im", function () {
         if ($(this).attr("src") != "") {
             $("#im").attr("src", $(this).attr("src"));
             $("#fixedblack").show().fadeTo(200, 1);
             $("#im").show().fadeTo(0.5, 1);
         }
     });
-
     $(document).on("click", "#fixedblack", function () {
         $("#im").hide();
         $("#fixedblack").stop(true).fadeTo(200, 0, function () {
             $("#fixedblack").hide();
         });
     });
-
+		$(this).keydown(function(eventObject){
+				if (eventObject.which == 27)
+						$("#fixedblack").hide();
+		});
+		
+		
+		
 });
 
 // Если нужные объекты не объявлены
