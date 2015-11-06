@@ -88,6 +88,21 @@ function serviz_menublocks_open() {
 	}
 }
 
+function formatMoney(){
+    $('.money').each(function(){
+        var $this=$(this);
+        var str=$this.text();
+        str=str.replace(/[^\d\.]/g,'');
+        var arr=str.split('.');
+        var lim=Math.floor(arr[0].length/3);
+        for(i=0;i<lim;i++)
+            arr[0]=arr[0].replace(/(\d{3})$/i," $1");
+        str=arr.join('.');
+        $this.text(str);
+        $this.removeClass('money');
+    });
+}
+
 function decore_block_size(){/* даёт блокам фильтра значения длины
     $(".serviz_filter_list").eq(-2).css("width","300px");
     $(".catalogue-filter-list").eq(-2).css("width","300px");
@@ -159,6 +174,7 @@ $(function(){
 	*/
 
     customListeners();
+    initAfterRefresh();
 	
 	$("[data-add-button]").on('click', function()
 	{
@@ -263,19 +279,6 @@ $(function(){
 	$(".ui-spinner-up").on("click", spinnerUp);	
 	$(".ui-spinner-down").on("click", spinnerDown);
 	
-	$("#realCard .product-remove-btn").on("click", function()
-	{
-		var code = $(this).parent().attr("data-code");
-		$(this).parent().remove();
-		
-		$.get("/api/card/delete/?code="+code, function(data)
-		{
-			$(".sidebar-cart").html(data);
-			refreshPageCard();
-		});
-		return false;
-	});
-
 
 
 	// Sidebar show/hide
@@ -381,18 +384,18 @@ $(function(){
 	});
 
 	// Order toggle
-	$('.order-toggle').on('click', function(){
-		var $order = $(this).parents('.order');
+    $('.click-toggle').on('click', function(){
+        var $order = $(this).parents('.order');
 
-		if ($order.is('.order_open')) {
-			$(this).text('развернуть');
-		} else {
-			$(this).text('свернуть');
-		}
-		$order.toggleClass('order_open');
-	});
+        if ($order.is('.order_open')) {
+            $order.find("order-toggle").text('развернуть');
+        } else {
+            $order.find("order-toggle").text('свернуть');
+        }
+        $order.toggleClass('order_open');
+    });
 
-	// Catalogue filter
+    // Catalogue filter
 	$('.catalogue-filter-caption').on('click', function(){
 		$(this).parents('.catalogue-filter').toggleClass('catalogue-filter_open');
         if($(this).parents('.catalogue-filter').hasClass('catalogue-filter_open'))
@@ -779,6 +782,8 @@ function refreshCard(){
 	});
 }
 
+
+// Функция после AJAX запросов
 function initAfterRefresh(){
 	// Spinner
 	$('.spinner').spinner({
@@ -801,8 +806,22 @@ function initAfterRefresh(){
 			refreshPageCard();
 		});
 	});
-	
-	$(".ui-spinner-down").on("click", function()
+
+    $("#realCard .product-remove-btn").on("click", function()
+    {
+        var code = $(this).parent().attr("data-code");
+        $(this).parent().remove();
+
+        $.get("/api/card/delete/?code="+code, function(data)
+        {
+            $(".sidebar-cart").html(data);
+            refreshPageCard();
+        });
+        return false;
+    });
+
+
+    $(".ui-spinner-down").on("click", function()
 	{
 		var code = $(this).closest('.cart-product,.product').attr("data-code");
 		var count = $(this).parent().find("input").attr("aria-valuenow");
@@ -830,7 +849,9 @@ function initAfterRefresh(){
 	});
 	
 	$('#btnDiscountController').click(Controller.discount.activateDialog);
+    formatMoney();
 }
+// End of initAfterRefresh()
 
 function addCard(code, url){	
 	$.post("/api/card/add/?code="+code, { post_url:url }, function(data)
@@ -1443,9 +1464,8 @@ $(document).ready(function(){
 				if (eventObject.which == 27)
 						$("#fixedblack").hide();
 		});
-		
-		
-		
+
+    formatMoney();
 });
 
 // Если нужные объекты не объявлены
