@@ -2744,7 +2744,9 @@ line-height: 24px;	 }
   .order-meta > li {
     float: left;
     padding: 0 20px;
-    border-left: 1px solid #999; }
+    border-left: 1px solid #999;
+    line-height: 22px;
+  }
     .order-meta > li:first-child {
       border-left: 0; }
   .order-meta strong {
@@ -2768,6 +2770,8 @@ line-height: 24px;	 }
       content: '\e804'; }
   .order-toggle:hover {
     color: #0b162f; }
+
+  .click-toggle{cursor: pointer;}
 
 .order-body {
   display: none;

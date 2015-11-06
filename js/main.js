@@ -369,18 +369,18 @@ $(function(){
 	});
 
 	// Order toggle
-	$('.order-toggle').on('click', function(){
-		var $order = $(this).parents('.order');
+    $('.click-toggle').on('click', function(){
+        var $order = $(this).parents('.order');
 
-		if ($order.is('.order_open')) {
-			$(this).text('развернуть');
-		} else {
-			$(this).text('свернуть');
-		}
-		$order.toggleClass('order_open');
-	});
+        if ($order.is('.order_open')) {
+            $order.find("order-toggle").text('развернуть');
+        } else {
+            $order.find("order-toggle").text('свернуть');
+        }
+        $order.toggleClass('order_open');
+    });
 
-	// Catalogue filter
+    // Catalogue filter
 	$('.catalogue-filter-caption').on('click', function(){
 		$(this).parents('.catalogue-filter').toggleClass('catalogue-filter_open');
         if($(this).parents('.catalogue-filter').hasClass('catalogue-filter_open'))
