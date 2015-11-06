@@ -88,6 +88,21 @@ function serviz_menublocks_open() {
 	}
 }
 
+function formatMoney(){
+    $('.money').each(function(){
+        var $this=$(this);
+        var str=$this.text();
+        str=str.replace(/[^\d\.]/g,'');
+        var arr=str.split('.');
+        var lim=Math.floor(arr[0].length/3);
+        for(i=0;i<lim;i++)
+            arr[0]=arr[0].replace(/(\d{3})$/i," $1");
+        str=arr.join('.');
+        $this.text(str);
+        $this.removeClass('money');
+    });
+}
+
 function decore_block_size(){/* даёт блокам фильтра значения длины
     $(".serviz_filter_list").eq(-2).css("width","300px");
     $(".catalogue-filter-list").eq(-2).css("width","300px");
@@ -767,6 +782,7 @@ function refreshCard(){
 	});
 }
 
+
 // Функция после AJAX запросов
 function initAfterRefresh(){
 	// Spinner
@@ -833,6 +849,7 @@ function initAfterRefresh(){
 	});
 	
 	$('#btnDiscountController').click(Controller.discount.activateDialog);
+    formatMoney();
 }
 // End of initAfterRefresh()
 
@@ -1447,9 +1464,8 @@ $(document).ready(function(){
 				if (eventObject.which == 27)
 						$("#fixedblack").hide();
 		});
-		
-		
-		
+
+    formatMoney();
 });
 
 // Если нужные объекты не объявлены
