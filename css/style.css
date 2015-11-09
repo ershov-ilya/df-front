@@ -3342,7 +3342,7 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
     border-top: 6px solid black;
 }
 */
-.serviz_filter ul { width: 255px; max-height: 300px; overflow: auto;  }
+.serviz_filter ul { width: 255px; max-height: 300px; overflow: auto; }
 .serviz_filter_list {
   /*
 	border-left: #666 1px solid;
