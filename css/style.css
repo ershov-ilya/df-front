@@ -3324,24 +3324,6 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
   .filter-column_open .serviz_filter {
     display: block; border-bottom: 0; }
 
-/*
-.serviz_filter:after {
-    content: "";
-    margin-left: 170px;
-    margin-top: -19px;
-    position: absolute;
-    border: 4px solid transparent;
-    border-top: 6px solid black;
-}
-.serviz_filter.decor:after {
-    content: "";
-    margin-left: 280px;
-    margin-top: -19px;
-    position: absolute;
-    border: 4px solid transparent;
-    border-top: 6px solid black;
-}
-*/
 .serviz_filter ul { width: 255px; max-height: 300px; overflow: auto; }
 .serviz_filter_list {
   /*
