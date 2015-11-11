@@ -1562,9 +1562,7 @@ line-height: 24px;	 }
   opacity: .6; }
   .brands-slider-item a:hover {
     opacity: 1; }
-.brands-slider-item img {
-  display: block;
-  margin: 0 auto; }
+.brands-slider-item img { display: block; margin: 0 auto; width: 125px; height: 120px; }
 
 /* ==|====================
    Modules/About
@@ -1677,6 +1675,12 @@ line-height: 24px;	 }
 .brands {
   padding-top: 18px;
   padding-bottom: 18px; }
+.brands ul li { display: block; float: left;  width: 210px; height: 150px; text-align: center; margin-bottom: 30px; }
+
+
+.brands ul li a { display: block; width: 170px; height: 150px; font-size: 15px; text-align: center; text-decoration: none; color: #555555; border-bottom: 1px solid #DADADA; }
+.brands ul li a:hover { color: #2b3d85; }
+.brands ul li a img { display: block; width: 125px; height: 120px; margin: 0 auto; opacity: .85; }
   .brands .brands-item {
     width: 25%;
     margin-bottom: 0; }
@@ -3653,14 +3657,14 @@ body.stop-scrolling footer{
 
 .sitemapcat { display: table; width: 900px;  }
 .sitemapcat h3 { margin-top: 0; }
-.sitemapcat > div { display: table-cell; vertical-align: top; }
 .sitemapcat a { text-decoration: none; }
-.sitemapcat > div > ul { padding: 0; margin: 0; margin-bottom: 30px; }
-.sitemapcat > div > ul > li { font-size: 17px; font-weight: bold; display: block; padding: 0; }
+.sitemapcat a { display: block; padding: 0 4px; text-decoration: none; }
+.sitemapcat a:hover { color: #2b3d85; background: #F0F0F0; }
+.sitemapcat > div { display: table-cell; vertical-align: top; padding-right: 20px; }
+.sitemapcat > div > ul { padding: 0; margin: 0; margin-bottom: 20px;  padding-bottom: 10px; border-bottom: 1px solid #DADADA; }
+.sitemapcat > div > ul > li { font-size: 17px; font-weight: bold; display: block; padding: 0; padding-top: 5px; }
 .sitemapcat > div > ul > li > ul { padding-left: 2px; }
 .sitemapcat > div > ul > li > ul > li { display: block; font-size: 13px; font-weight: normal; }
-.sitemapcat > div > ul > li > ul > li > ul { padding-left:  10px; }
-.sitemapcat > div > ul > li > ul > li > ul > li { display: block; font-size: 12px; font-weight: normal; }
 
 .sitemap-brands { float: right; padding-left: 15px;  border-left: 1px solid #DADADA; }
 .sitemap-brands a { display: block; padding: 1px 7px; text-decoration: none; }
