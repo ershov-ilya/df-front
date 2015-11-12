@@ -154,7 +154,6 @@ function customListeners(){
 }
 
 $(function(){
-
 	$("#reset").attr("href", window.location.pathname);
 	//$('#search').addClass('search_active');
 	
@@ -769,50 +768,37 @@ function refreshPageCard(){
 	}	
 }
 
-function scrollbarWidth(){
-	var $inner = $('<div style="width:100%;height:1px;"></div>'),
-		$outer = $('<div style="width:100px;height:1px;position:absolute;top:0;left:0;visibility:hidden;overflow:scroll;"></div>').append($inner);
-	 
-	$('body').append($outer);
-	var width1 = $inner.width(),
-		width2 = $outer.outerWidth();
-	$outer.remove();
- 
-	return (width2 - width1);
-}
-
 function refreshCard(){
-	$.get("/api/card/refresh/", function(data)
-	{
-		$(".sidebar-products").html(data);
-		initAfterRefresh();
-	});
+    $.get("/api/card/refresh/", function(data)
+    {
+        $(".sidebar-products").html(data);
+        initAfterRefresh();
+    });
 }
-
 
 // Функция после AJAX запросов
 function initAfterRefresh(){
-	// Spinner
-	$('.spinner').spinner({
-		min: 1,
-		create: function(event, ui) {
-			$('.ui-spinner-down').html('&ndash;');
-			$('.ui-spinner-up').html('+');
-		}
-	});
-	
-	$(".ui-spinner-up").on("click", function()
-	{
-		var code = $(this).closest('.cart-product,.product').attr("data-code");
-		var count = $(this).parent().find("input").attr("aria-valuenow");
-		
-		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
-		{
-			$(".sidebar-cart").html(data);
-			refreshCard();
-			refreshPageCard();
-		});
-	});
+    // Spinner
+    $('.spinner').spinner({
+        min: 1,
+        create: function(event, ui) {
+            $('.ui-spinner-down').html('&ndash;');
+            $('.ui-spinner-up').html('+');
+        }
+    });
+
+    $(".ui-spinner-up").on("click", function()
+    {
+        var code = $(this).closest('.cart-product,.product').attr("data-code");
+        var count = $(this).parent().find("input").attr("aria-valuenow");
+
+        $.get("/api/card/edit/?code="+code+"&count="+count, function(data)
+        {
+            $(".sidebar-cart").html(data);
+            refreshCard();
+            refreshPageCard();
+        });
+    });
 
     $("#realCard .product-remove-btn").on("click", function()
     {
@@ -829,38 +815,50 @@ function initAfterRefresh(){
 
 
     $(".ui-spinner-down").on("click", function()
-	{
-		var code = $(this).closest('.cart-product,.product').attr("data-code");
-		var count = $(this).parent().find("input").attr("aria-valuenow");
-		
-		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
-		{
-			$(".sidebar-cart").html(data);
-			refreshCard();
-			refreshPageCard();
-		});
-	});
-	
-	$(".sidebar-products-item .product-remove-btn").on("click", function()
-	{
-		var code = $(this).parent().attr("data-code");
-		$(this).parent().remove();
-		
-		$.get("/api/card/delete/?code="+code, function(data)
-		{
-			$(".sidebar-cart").html(data);
-			refreshCard();
-			refreshPageCard();
-		});
-		return false;
-	});
-	
-	$('#btnDiscountController').click(Controller.discount.activateDialog);
+    {
+        var code = $(this).closest('.cart-product,.product').attr("data-code");
+        var count = $(this).parent().find("input").attr("aria-valuenow");
+
+        $.get("/api/card/edit/?code="+code+"&count="+count, function(data)
+        {
+            $(".sidebar-cart").html(data);
+            refreshCard();
+            refreshPageCard();
+        });
+    });
+
+    $(".sidebar-products-item .product-remove-btn").on("click", function()
+    {
+        var code = $(this).parent().attr("data-code");
+        $(this).parent().remove();
+
+        $.get("/api/card/delete/?code="+code, function(data)
+        {
+            $(".sidebar-cart").html(data);
+            refreshCard();
+            refreshPageCard();
+        });
+        return false;
+    });
+
+    $('#btnDiscountController').click(Controller.discount.activateDialog);
     formatMoney();
 }
 // End of initAfterRefresh()
 
-function addCard(code, url){	
+function scrollbarWidth(){
+	var $inner = $('<div style="width:100%;height:1px;"></div>'),
+		$outer = $('<div style="width:100px;height:1px;position:absolute;top:0;left:0;visibility:hidden;overflow:scroll;"></div>').append($inner);
+	 
+	$('body').append($outer);
+	var width1 = $inner.width(),
+		width2 = $outer.outerWidth();
+	$outer.remove();
+ 
+	return (width2 - width1);
+}
+
+function addCard(code, url){
 	$.post("/api/card/add/?code="+code, { post_url:url }, function(data)
 	{
 		$(".sidebar-cart").html(data);
@@ -1226,7 +1224,6 @@ function parseUrl(name, value){
 }
 
 function price_init(){
-	
 		// Catalogue price slider
 	$('.priceslider-holder').each(function(){
 		var $pSlider = $(this).find('.priceslider'),
@@ -1349,7 +1346,8 @@ function filterOpener(){
 //    }
 }
 
-function number_format( number, decimals, dec_point, thousands_sep ) {	// Format a number with grouped thousands
+function number_format( number, decimals, dec_point, thousands_sep ) {
+	// Format a number with grouped thousands
 	// 
 	// +   original by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
 	// +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
