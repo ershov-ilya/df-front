@@ -1385,10 +1385,6 @@ function number_format( number, decimals, dec_point, thousands_sep ) {	// Format
 	return km + kw + kd;
 }
 
-if(typeof unviewmenu == 'undefined'){
-	var unviewmenu = function(){};
-}
-
 function activateSpinnerInput(){
     $('.ui-spinner-input').bind('mousewheel DOMMouseScroll', function(e) {
         var scrollTo = null;
@@ -1468,6 +1464,14 @@ function activatePhotoZoom(){
     });
 }
 
+// Если нужные объекты не объявлены
+if(typeof Controller == 'undefined') Controller = {};
+if(typeof Controller.discount == 'undefined') Controller.discount = {};
+if(typeof Controller.discount.activateDialog == 'undefined') Controller.discount.activateDialog = null;
+if(typeof unviewmenu == 'undefined'){
+    var unviewmenu = function(){};
+}
+
 $(document).ready(function(){
     httpsRedirect();
     $(".product-remove-btn.discount").on("click",function(){
@@ -1481,7 +1485,3 @@ $(document).ready(function(){
     formatMoney();
 });
 
-// Если нужные объекты не объявлены
-if(typeof Controller == 'undefined') Controller = {};
-if(typeof Controller.discount == 'undefined') Controller.discount = {};
-if(typeof Controller.discount.activateDialog == 'undefined') Controller.discount.activateDialog = null;
