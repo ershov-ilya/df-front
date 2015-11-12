@@ -103,6 +103,13 @@ function formatMoney(){
     });
 }
 
+function httpsRedirect(){
+    if(window.location.protocol == "http:" && window.location.host=='www.domfarfora.ru' && window.location.pathname.match(/^\/account\//)){
+        var restOfUrl = window.location.href.substr(5);
+        window.location = "https:" + restOfUrl;
+    }
+}
+
 function decore_block_size(){/* даёт блокам фильтра значения длины
     $(".serviz_filter_list").eq(-2).css("width","300px");
     $(".catalogue-filter-list").eq(-2).css("width","300px");
@@ -1383,6 +1390,7 @@ if(typeof unviewmenu == 'undefined'){
 }
 
 $(document).ready(function(){
+    httpsRedirect();
     $(".product-remove-btn.discount").on("click",function(){
         $("input[name=discount_card]").val("");
     });
