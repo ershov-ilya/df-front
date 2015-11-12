@@ -110,7 +110,8 @@ function httpsRedirect(){
     }
 }
 
-function decore_block_size(){/* даёт блокам фильтра значения длины
+function decore_block_size(){
+/* даёт блокам фильтра значения длины
     $(".serviz_filter_list").eq(-2).css("width","300px");
     $(".catalogue-filter-list").eq(-2).css("width","300px");
     $(".filter_apply").eq(-2).css("width","300px");
