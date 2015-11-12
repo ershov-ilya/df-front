@@ -944,7 +944,7 @@ function popupInit(){
 							$ajaxbox_contact.val("");
 						
 							$popup.hide();	
-							$('.popup-overlay').hide();							
+							$('.popup-overlay').hide();
 						});
 					}					
 				});
@@ -956,7 +956,7 @@ function popupInit(){
 		else
 		{
 			$("#spinner").hide();
-			var $popup = $('#' + $(this).data('popup'));
+            var $popup = $('#' + $(this).data('popup'));
 			
 			var popup_art = $(this).attr("data-popup-art");
 			var data_url = $(this).attr("data-url");
@@ -1215,9 +1215,9 @@ function parseUrl(name, value){
 			display_selected_options: false,
 			no_results_text: "Ничего не найдено"
 		});
-	
+        formatMoney();
 
-		//  decore_block_size();
+        //  decore_block_size();
 		//checkRangeOverflow();
 	});
 	
