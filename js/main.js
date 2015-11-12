@@ -1389,11 +1389,7 @@ if(typeof unviewmenu == 'undefined'){
 	var unviewmenu = function(){};
 }
 
-$(document).ready(function(){
-    httpsRedirect();
-    $(".product-remove-btn.discount").on("click",function(){
-        $("input[name=discount_card]").val("");
-    });
+function activateSpinnerInput(){
     $('.ui-spinner-input').bind('mousewheel DOMMouseScroll', function(e) {
         var scrollTo = null;
 
@@ -1423,39 +1419,37 @@ $(document).ready(function(){
 
         calc_sum();
         $(".cart-total-price").text("Итого: "+total_price_basket());
-				$(".item-price-value").html(total_price_basket());
+        $(".item-price-value").html(total_price_basket());
+    });
+}
+function activatePriceslider(){
+    $(".priceslider a").eq(0).mouseup(function()
+    {
+        var min_value = $(".priceslider-min-value").val();
+        parseUrl("min_value", min_value);
     });
 
-	$(".priceslider a").eq(0).mouseup(function()
-	{
-		var min_value = $(".priceslider-min-value").val();
-		parseUrl("min_value", min_value);
-	});
-	
-	$(".priceslider a").eq(1).mouseup(function()
-	{
-		var max_value = $(".priceslider-max-value").val();
-		parseUrl("max_value", max_value);
-	});
-	
-	$(".priceslider-min-value").on("input",function(e)
-	{
-		var min_value = $(this).val();
-		parseUrl("min_value", min_value);
-	});
-	
-	$(".priceslider-max-value").on("input",function(e)
-	{
-		var max_value = $(this).val();
-		parseUrl("max_value", max_value);
-	});
-	
-	price_init();
+    $(".priceslider a").eq(1).mouseup(function()
+    {
+        var max_value = $(".priceslider-max-value").val();
+        parseUrl("max_value", max_value);
+    });
 
-    decore_block_size();
+    $(".priceslider-min-value").on("input",function(e)
+    {
+        var min_value = $(this).val();
+        parseUrl("min_value", min_value);
+    });
 
+    $(".priceslider-max-value").on("input",function(e)
+    {
+        var max_value = $(this).val();
+        parseUrl("max_value", max_value);
+    });
+}
+function activatePhotoZoom(){
     //увеличение фотографии (зум)
-		$(document).on("click", ".im", function () {
+    $(document).on("click", ".im", function () {
         if ($(this).attr("src") != "") {
             $("#im").attr("src", $(this).attr("src"));
             $("#fixedblack").show().fadeTo(200, 1);
@@ -1468,11 +1462,22 @@ $(document).ready(function(){
             $("#fixedblack").hide();
         });
     });
-		$(this).keydown(function(eventObject){
-				if (eventObject.which == 27)
-						$("#fixedblack").hide();
-		});
+    $(this).keydown(function(eventObject){
+        if (eventObject.which == 27)
+            $("#fixedblack").hide();
+    });
+}
 
+$(document).ready(function(){
+    httpsRedirect();
+    $(".product-remove-btn.discount").on("click",function(){
+        $("input[name=discount_card]").val("");
+    });
+    activateSpinnerInput();
+    activatePriceslider();
+	price_init();
+    decore_block_size();
+    activatePhotoZoom();
     formatMoney();
 });
 
