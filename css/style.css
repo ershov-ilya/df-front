@@ -3677,7 +3677,10 @@ body.stop-scrolling footer{
 .brand-categories div { float: left; margin-right: 40px; margin-bottom: 40px; }
 .brand-categories div h3 { margin-top: 0; margin-bottom: 5px; padding-left: 10px; color: #444444; }
 .brand-categories div ul {  margin: 0; padding-left:  2px; }
-.brand-categories div ul li { display: block; font-size: 14px; }
-.brand-categories div ul li a { display: block; padding: 5px 5px 0 5px; border-bottom: 1px solid #DADADA; text-decoration: none; }
+.brand-categories div ul li { display: block; }
+.brand-categories div ul li a { display: block; font-size: 14px; padding: 5px 5px 0 5px; border-bottom: 1px solid #DADADA; text-decoration: none; }
 .brand-categories div ul li a:hover { color: #2b3d85; background: #F0F0F0; }
 
+.search-list { margin: 0; margin-bottom: 40px; padding: 0; }
+.search-list li { display: block; }
+.search-list li a { display: table; font-size: 14px; padding: 5px 5px 0 5px; border-bottom: 1px solid #DADADA; text-decoration: none; }
