@@ -103,7 +103,15 @@ function formatMoney(){
     });
 }
 
-function decore_block_size(){/* даёт блокам фильтра значения длины
+function httpsRedirect(){
+    if(window.location.protocol == "http:" && window.location.host=='www.domfarfora.ru' && window.location.pathname.match(/^\/account\//)){
+        var restOfUrl = window.location.href.substr(5);
+        window.location = "https:" + restOfUrl;
+    }
+}
+
+function decore_block_size(){
+/* даёт блокам фильтра значения длины
     $(".serviz_filter_list").eq(-2).css("width","300px");
     $(".catalogue-filter-list").eq(-2).css("width","300px");
     $(".filter_apply").eq(-2).css("width","300px");
@@ -147,7 +155,6 @@ function customListeners(){
 }
 
 $(function(){
-
 	$("#reset").attr("href", window.location.pathname);
 	//$('#search').addClass('search_active');
 	
@@ -762,50 +769,37 @@ function refreshPageCard(){
 	}	
 }
 
-function scrollbarWidth(){
-	var $inner = $('<div style="width:100%;height:1px;"></div>'),
-		$outer = $('<div style="width:100px;height:1px;position:absolute;top:0;left:0;visibility:hidden;overflow:scroll;"></div>').append($inner);
-	 
-	$('body').append($outer);
-	var width1 = $inner.width(),
-		width2 = $outer.outerWidth();
-	$outer.remove();
- 
-	return (width2 - width1);
-}
-
 function refreshCard(){
-	$.get("/api/card/refresh/", function(data)
-	{
-		$(".sidebar-products").html(data);
-		initAfterRefresh();
-	});
+    $.get("/api/card/refresh/", function(data)
+    {
+        $(".sidebar-products").html(data);
+        initAfterRefresh();
+    });
 }
-
 
 // Функция после AJAX запросов
 function initAfterRefresh(){
-	// Spinner
-	$('.spinner').spinner({
-		min: 1,
-		create: function(event, ui) {
-			$('.ui-spinner-down').html('&ndash;');
-			$('.ui-spinner-up').html('+');
-		}
-	});
-	
-	$(".ui-spinner-up").on("click", function()
-	{
-		var code = $(this).closest('.cart-product,.product').attr("data-code");
-		var count = $(this).parent().find("input").attr("aria-valuenow");
-		
-		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
-		{
-			$(".sidebar-cart").html(data);
-			refreshCard();
-			refreshPageCard();
-		});
-	});
+    // Spinner
+    $('.spinner').spinner({
+        min: 1,
+        create: function(event, ui) {
+            $('.ui-spinner-down').html('&ndash;');
+            $('.ui-spinner-up').html('+');
+        }
+    });
+
+    $(".ui-spinner-up").on("click", function()
+    {
+        var code = $(this).closest('.cart-product,.product').attr("data-code");
+        var count = $(this).parent().find("input").attr("aria-valuenow");
+
+        $.get("/api/card/edit/?code="+code+"&count="+count, function(data)
+        {
+            $(".sidebar-cart").html(data);
+            refreshCard();
+            refreshPageCard();
+        });
+    });
 
     $("#realCard .product-remove-btn").on("click", function()
     {
@@ -822,38 +816,50 @@ function initAfterRefresh(){
 
 
     $(".ui-spinner-down").on("click", function()
-	{
-		var code = $(this).closest('.cart-product,.product').attr("data-code");
-		var count = $(this).parent().find("input").attr("aria-valuenow");
-		
-		$.get("/api/card/edit/?code="+code+"&count="+count, function(data)
-		{
-			$(".sidebar-cart").html(data);
-			refreshCard();
-			refreshPageCard();
-		});
-	});
-	
-	$(".sidebar-products-item .product-remove-btn").on("click", function()
-	{
-		var code = $(this).parent().attr("data-code");
-		$(this).parent().remove();
-		
-		$.get("/api/card/delete/?code="+code, function(data)
-		{
-			$(".sidebar-cart").html(data);
-			refreshCard();
-			refreshPageCard();
-		});
-		return false;
-	});
-	
-	$('#btnDiscountController').click(Controller.discount.activateDialog);
+    {
+        var code = $(this).closest('.cart-product,.product').attr("data-code");
+        var count = $(this).parent().find("input").attr("aria-valuenow");
+
+        $.get("/api/card/edit/?code="+code+"&count="+count, function(data)
+        {
+            $(".sidebar-cart").html(data);
+            refreshCard();
+            refreshPageCard();
+        });
+    });
+
+    $(".sidebar-products-item .product-remove-btn").on("click", function()
+    {
+        var code = $(this).parent().attr("data-code");
+        $(this).parent().remove();
+
+        $.get("/api/card/delete/?code="+code, function(data)
+        {
+            $(".sidebar-cart").html(data);
+            refreshCard();
+            refreshPageCard();
+        });
+        return false;
+    });
+
+    $('#btnDiscountController').click(Controller.discount.activateDialog);
     formatMoney();
 }
 // End of initAfterRefresh()
 
-function addCard(code, url){	
+function scrollbarWidth(){
+	var $inner = $('<div style="width:100%;height:1px;"></div>'),
+		$outer = $('<div style="width:100px;height:1px;position:absolute;top:0;left:0;visibility:hidden;overflow:scroll;"></div>').append($inner);
+	 
+	$('body').append($outer);
+	var width1 = $inner.width(),
+		width2 = $outer.outerWidth();
+	$outer.remove();
+ 
+	return (width2 - width1);
+}
+
+function addCard(code, url){
 	$.post("/api/card/add/?code="+code, { post_url:url }, function(data)
 	{
 		$(".sidebar-cart").html(data);
@@ -939,7 +945,7 @@ function popupInit(){
 							$ajaxbox_contact.val("");
 						
 							$popup.hide();	
-							$('.popup-overlay').hide();							
+							$('.popup-overlay').hide();
 						});
 					}					
 				});
@@ -951,7 +957,7 @@ function popupInit(){
 		else
 		{
 			$("#spinner").hide();
-			var $popup = $('#' + $(this).data('popup'));
+            var $popup = $('#' + $(this).data('popup'));
 			
 			var popup_art = $(this).attr("data-popup-art");
 			var data_url = $(this).attr("data-url");
@@ -1210,16 +1216,15 @@ function parseUrl(name, value){
 			display_selected_options: false,
 			no_results_text: "Ничего не найдено"
 		});
-	
+        formatMoney();
 
-		//  decore_block_size();
+        //  decore_block_size();
 		//checkRangeOverflow();
 	});
 	
 }
 
 function price_init(){
-	
 		// Catalogue price slider
 	$('.priceslider-holder').each(function(){
 		var $pSlider = $(this).find('.priceslider'),
@@ -1342,7 +1347,8 @@ function filterOpener(){
 //    }
 }
 
-function number_format( number, decimals, dec_point, thousands_sep ) {	// Format a number with grouped thousands
+function number_format( number, decimals, dec_point, thousands_sep ) {
+	// Format a number with grouped thousands
 	// 
 	// +   original by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
 	// +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
@@ -1378,14 +1384,7 @@ function number_format( number, decimals, dec_point, thousands_sep ) {	// Format
 	return km + kw + kd;
 }
 
-if(typeof unviewmenu == 'undefined'){
-	var unviewmenu = function(){};
-}
-
-$(document).ready(function(){
-    $(".product-remove-btn.discount").on("click",function(){
-        $("input[name=discount_card]").val("");
-    });
+function activateSpinnerInput(){
     $('.ui-spinner-input').bind('mousewheel DOMMouseScroll', function(e) {
         var scrollTo = null;
 
@@ -1415,39 +1414,37 @@ $(document).ready(function(){
 
         calc_sum();
         $(".cart-total-price").text("Итого: "+total_price_basket());
-				$(".item-price-value").html(total_price_basket());
+        $(".item-price-value").html(total_price_basket());
+    });
+}
+function activatePriceslider(){
+    $(".priceslider a").eq(0).mouseup(function()
+    {
+        var min_value = $(".priceslider-min-value").val();
+        parseUrl("min_value", min_value);
     });
 
-	$(".priceslider a").eq(0).mouseup(function()
-	{
-		var min_value = $(".priceslider-min-value").val();
-		parseUrl("min_value", min_value);
-	});
-	
-	$(".priceslider a").eq(1).mouseup(function()
-	{
-		var max_value = $(".priceslider-max-value").val();
-		parseUrl("max_value", max_value);
-	});
-	
-	$(".priceslider-min-value").on("input",function(e)
-	{
-		var min_value = $(this).val();
-		parseUrl("min_value", min_value);
-	});
-	
-	$(".priceslider-max-value").on("input",function(e)
-	{
-		var max_value = $(this).val();
-		parseUrl("max_value", max_value);
-	});
-	
-	price_init();
+    $(".priceslider a").eq(1).mouseup(function()
+    {
+        var max_value = $(".priceslider-max-value").val();
+        parseUrl("max_value", max_value);
+    });
 
-    decore_block_size();
+    $(".priceslider-min-value").on("input",function(e)
+    {
+        var min_value = $(this).val();
+        parseUrl("min_value", min_value);
+    });
 
+    $(".priceslider-max-value").on("input",function(e)
+    {
+        var max_value = $(this).val();
+        parseUrl("max_value", max_value);
+    });
+}
+function activatePhotoZoom(){
     //увеличение фотографии (зум)
-		$(document).on("click", ".im", function () {
+    $(document).on("click", ".im", function () {
         if ($(this).attr("src") != "") {
             $("#im").attr("src", $(this).attr("src"));
             $("#fixedblack").show().fadeTo(200, 1);
@@ -1460,15 +1457,30 @@ $(document).ready(function(){
             $("#fixedblack").hide();
         });
     });
-		$(this).keydown(function(eventObject){
-				if (eventObject.which == 27)
-						$("#fixedblack").hide();
-		});
-
-    formatMoney();
-});
+    $(this).keydown(function(eventObject){
+        if (eventObject.which == 27)
+            $("#fixedblack").hide();
+    });
+}
 
 // Если нужные объекты не объявлены
 if(typeof Controller == 'undefined') Controller = {};
 if(typeof Controller.discount == 'undefined') Controller.discount = {};
 if(typeof Controller.discount.activateDialog == 'undefined') Controller.discount.activateDialog = null;
+if(typeof unviewmenu == 'undefined'){
+    var unviewmenu = function(){};
+}
+
+$(document).ready(function(){
+    httpsRedirect();
+    $(".product-remove-btn.discount").on("click",function(){
+        $("input[name=discount_card]").val("");
+    });
+    activateSpinnerInput();
+    activatePriceslider();
+	price_init();
+    decore_block_size();
+    activatePhotoZoom();
+    formatMoney();
+});
+
