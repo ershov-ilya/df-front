@@ -2475,11 +2475,8 @@ line-height: 24px;	 }
 /* ==|====================
    Modules/Cart
    ======================= */
-.cart-item {
-  width: 50%; }
-  @media screen and (min-width: 1736px) {
-    .cart-item {
-      width: 33.33%; } }
+.cart-item { width: 518px; }
+
 
 .cart-product {
   position: relative;
