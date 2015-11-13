@@ -3671,3 +3671,13 @@ body.stop-scrolling footer{
 .sitemap-brands a:hover { color: #2b3d85; background: #F0F0F0; }
 .sitemap-brands > ul { padding: 0; }
 .sitemap-brands > ul > li { display: block; font-size: 14px; }
+
+.brand-categories { display: table; margin-bottom: 60px; }
+.brand-categories h2 { padding: 10px; }
+.brand-categories div { float: left; margin-right: 40px; margin-bottom: 40px; }
+.brand-categories div h3 { margin-top: 0; margin-bottom: 5px; padding-left: 10px; color: #444444; }
+.brand-categories div ul {  margin: 0; padding-left:  2px; }
+.brand-categories div ul li { display: block; font-size: 14px; }
+.brand-categories div ul li a { display: block; padding: 5px 5px 0 5px; border-bottom: 1px solid #DADADA; text-decoration: none; }
+.brand-categories div ul li a:hover { color: #2b3d85; background: #F0F0F0; }
+
