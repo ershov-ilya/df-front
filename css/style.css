@@ -618,6 +618,11 @@ select {
     color: #172361;
     background: #f4f4ea; }
 
+.primary-brands:before {
+  background-position: 0 -87px; }
+.active > .primary-brands:before, .primary-cart:hover:before {
+  background-position: 0 -112px; }
+
 .primary-cart:before {
   background-position: 0 -87px; }
 .active > .primary-cart:before, .primary-cart:hover:before {
@@ -3279,6 +3284,13 @@ span.rubl {  display: inline-block;  width: 17px;  text-indent: -9999px;  backgr
   background-position: -239px -87px; }
 .active > .primary-service:before, .primary-service:hover:before {
   background-position: -239px -112px; }
+
+.primary-brands:before {
+  background-position: -264px -87px; }
+.active > .primary-brands:before, .primary-brands:hover:before {
+  background-position: -264px -112px; }
+
+
 
 #reset { margin: 20px 0 0 20px; width: 231px; }
 .chosen-container .chosen-drop li:before {
