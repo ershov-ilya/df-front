@@ -3691,7 +3691,9 @@ body.stop-scrolling footer{
 .brand-categories div ul li a:hover { color: #2b3d85; background: #F0F0F0; }
 
 .nabor-items { display: table;  width: 900px; margin: 0 auto; margin-bottom: 60px; }
-.nabor-items .products-item { display: block; float:  left; width: 298px; height: 380px; text-align: center; }
+.nabor-items .products-item { display: block; float:  left; width: 298px; height: 290px; text-align: center; }
+.nabor-items .products-item .product-pic img { width: 250px; height: 141px; }
+.nabor-img { margin-bottom: 50px; padding-right: 40px; }
 .nabor-img img { display: block; margin: 0 auto; }
 
 .search-list { margin: 0; margin-bottom: 40px; padding: 0; }
