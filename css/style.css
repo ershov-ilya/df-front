@@ -3690,6 +3690,14 @@ body.stop-scrolling footer{
 .brand-categories div ul li a { display: block; font-size: 14px; padding: 5px 5px 0 5px; border-bottom: 1px solid #DADADA; text-decoration: none; }
 .brand-categories div ul li a:hover { color: #2b3d85; background: #F0F0F0; }
 
+.nabor-items { display: table;  width: 900px; margin: 0 auto; margin-bottom: 60px; }
+.nabor-items .products-item { display: block; float:  left; width: 298px; height: 380px; text-align: center; }
+.nabor-img img { display: block; margin: 0 auto; }
+
 .search-list { margin: 0; margin-bottom: 40px; padding: 0; }
 .search-list li { display: block; }
 .search-list li a { display: table; font-size: 14px; padding: 5px 5px 0 5px; border-bottom: 1px solid #DADADA; text-decoration: none; }
+
+
+
+
