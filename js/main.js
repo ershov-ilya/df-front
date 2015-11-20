@@ -1490,7 +1490,7 @@ function orderFormRefetoSubmitBtn(e){
 	console.log(props);
 	$("#order").validate(function(res){
 		if(res===true){
-			Refeto.post('order', props, function(){
+			Refeto.post('lead', props, function(){
 				//console.log('submited');
 				$form.submit();
 			});
