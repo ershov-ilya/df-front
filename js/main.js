@@ -1463,6 +1463,42 @@ function activatePhotoZoom(){
     });
 }
 
+function orderFormRefetoSubmitBtn(e){
+	e.preventDefault();
+	var $form=$(e.target).closest('form');
+	// if no Refeto instance - simple submit the form
+	if(typeof Refeto == 'undefined') {$form.submit(); return false;}
+	var data=$form.formToObject();
+	//console.log(data);
+	var props={};
+	props.sum=$('#orderTotalSum').text();
+	props.sum=props.sum.replace(/ /g,'');
+	for(k in data){
+		switch(k){
+			case 'phone':
+			case 'email':
+				props[k]=data[k];
+			break;
+			case 'comm':
+				props.message=data[k];
+				break;
+			case 'reviewer':
+				props.name=data[k];
+				break;
+		}
+	}
+	console.log(props);
+	$("#order").validate(function(res){
+		if(res===true){
+			Refeto.post('order', props, function(){
+				//console.log('submited');
+				$form.submit();
+			});
+		}
+	});
+	return true;
+}
+
 // Если нужные объекты не объявлены
 if(typeof Controller == 'undefined') Controller = {};
 if(typeof Controller.discount == 'undefined') Controller.discount = {};
@@ -1482,5 +1518,6 @@ $(document).ready(function(){
     decore_block_size();
     activatePhotoZoom();
     formatMoney();
+	$('#orderFormSubmitBtn').click(orderFormRefetoSubmitBtn);
 });
 
