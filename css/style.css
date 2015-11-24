@@ -517,15 +517,7 @@ select {
 /* ==|====================
    Modules/Header
    ======================= */
-.header {
-  background-color: #172362;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 110px;
-  padding: 20px 0 0; }
+.header { background-color: #172362; position: fixed; z-index: 100; top: 0; bottom: 0; left: 0; width: 110px; padding: 20px 0 0; }
 
 .header-logo {
   overflow: hidden;
