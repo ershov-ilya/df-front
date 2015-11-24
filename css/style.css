@@ -518,9 +518,7 @@ select {
    Modules/Header
    ======================= */
 .header {
-  background-color: #0f1a40;
-  background-image: -webkit-linear-gradient(to bottom, #182464 0%, #101b43 100%);
-  background-image: linear-gradient(to bottom, #182464 0%, #101b43 100%);
+  background-color: #172362;
   position: fixed;
   z-index: 100;
   top: 0;
@@ -720,7 +718,7 @@ select {
     left: 110px;
     float: none;
     color: white;
-    background: #1c3d86; }
+    background: #172362; }
     /*.catnav .catnav-categories:before {
       position: absolute;
       top: 12px;
@@ -916,7 +914,7 @@ line-height: 24px;	 }
     margin-top: -7px;
     content: ''; }
 
-.search_active { background: #1c3d86; }
+.search_active { background: #172362; }
   .search_active:before, .search_active:after { display: none; }
 
 .search-input {
