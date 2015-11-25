@@ -701,14 +701,14 @@ function getOption(){
 	var href = $(location).attr("href");	
 	var this_url = "&this_url="+href;
 	var url = "";
-	
+
 	$(".toggle-active").map(function()
 	{
 		pp = $(this).parent().parent().parent().parent().attr("data-pp");
 		
 		if (pp=='brend') url = url + "&brend[]=" + $(this).html();
 		else if (pp=='decor') url = url + "&decor[]=" + $(this).html();
-		else url = url + "&f_"+pp+"[]=" + $(this).html();		
+		else url = url + "&f_"+pp+"[]=" + encodeURIComponent($(this).html());
 	});
 	
 	var a = href.split("?");
@@ -732,8 +732,7 @@ function getOption(){
 	
 	var a_url = a[0]+"?"+url;
 
-
-	window.history.pushState(null, null, a_url);	
+	window.history.pushState(null, null, a_url);
 	
 	$('.popup-overlay').show();
 	$("#spinner").show();
