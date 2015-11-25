@@ -706,8 +706,8 @@ function getOption(){
 	{
 		pp = $(this).parent().parent().parent().parent().attr("data-pp");
 		
-		if (pp=='brend') url = url + "&brend[]=" + $(this).html();
-		else if (pp=='decor') url = url + "&decor[]=" + $(this).html();
+		if (pp=='brend') url = url + "&brend[]=" + encodeURIComponent($(this).html());
+		else if (pp=='decor') url = url + "&decor[]=" + encodeURIComponent($(this).html());
 		else url = url + "&f_"+pp+"[]=" + encodeURIComponent($(this).html());
 	});
 	
